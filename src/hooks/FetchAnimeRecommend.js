@@ -1,10 +1,14 @@
 import axios from 'axios'
-import React from 'react'
+import { useEffect } from 'react'
 
-const FetchAnimeRecommend = () => {
+const FetchAnimeRecommend = (setAnimes) => {
     useEffect(() => {
-        axios.get('')
-    }, [input])
+        axios.get('https://api.jikan.moe/v3/anime/1/recommendations')
+            .then(result => {
+                const animes = result.data.recommendations.slice(0, 3)
+                setAnimes(animes)
+            })
+    }, [])
 }
 
 export default FetchAnimeRecommend
