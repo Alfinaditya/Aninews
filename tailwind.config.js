@@ -5,17 +5,26 @@ module.exports = {
     extend: {
       colors: {
         main: '#E46295',
-        transparant: '#D0D0D0',
         secondary: '#FFD4E5',
-        primary: '#5986FB'
+        transparant: '#D0D0D0',
+        pink: {
+          250: '#CDB9B9'
+        },
+        blue: {
+          primary: '#5986FB'
+        }
+
+      },
+      width: {
+        half: '40%',
       },
       fontFamily: {
         quicksand: ['Quicksand', 'sans-serif'],
         roboto: ['Roboto', 'sans-serif']
       },
-      maxWidth: {
-        mdl: '900px'
-      }
+      spacing: {
+        120: '500px'
+      },
     },
   },
   variants: {

@@ -2,7 +2,7 @@ import React from 'react'
 
 const SearchHeader = () => {
     return (
-        <div className="App_header mt-7 max-w-mdl">
+        <div className="mt-7 w-2/3">
             <div className="flex justify-between">
                 <h1 className="text-3xl text-main font-roboto font-bold"> Aninews</h1>
                 <div>
