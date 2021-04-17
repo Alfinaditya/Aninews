@@ -1,7 +1,6 @@
 import MainHome from './Components/Home/MainHome';
 import Navbar from './Components/Home/Navbar';
 import SearchHeader from './Components/Home/SearchHeader';
-import UpcomingAnime from './Components/Home/UpcomingAnime';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -9,30 +8,27 @@ function App() {
     <div className='App font-quicksand max-w-screen-xl m-auto'>
       <Router>
         <SearchHeader />
-        {/* Dashboard */}
-        <div className='mt-5 flex justify-between'>
-          <Navbar />
+        <Switch>
+          <div className='mt-12 flex justify-between'>
 
-          <Switch>
+            <Navbar />
             <Route exact path='/'>
               <MainHome />
-              <UpcomingAnime />
             </Route>
             <Route path='/anime'>
-              <h2>Hallo Anime</h2>
+              <p>Hallo Anime</p>
             </Route>
             <Route path='/news'>
-              <h2>Hallo News</h2>
+              <p>Hallo News</p>
             </Route>
-            <Route path='/mangas'>
-              <h2>Hallo Manga</h2>
+            <Route path='/about-us'>
+              <p>Hallo About us</p>
             </Route>
-          </Switch>
 
-        </div>
-        {/* Dashboard */}
+          </div>
+        </Switch>
       </Router>
-    </div>
+    </div >
 
   );
 }

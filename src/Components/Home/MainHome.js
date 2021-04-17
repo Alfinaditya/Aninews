@@ -1,13 +1,12 @@
 import AnimeRec from "./AnimeRec"
 import MangaRec from "./MangaRec"
+import UpcomingAnime from "./UpcomingAnime"
 
 const MainHome = () => {
     return (
         <div className='mt-6'>
-            {/* Main Image */}
-            <div className='w-full h-56 bg-pink-250 m-auto rounded-xl'>
-                <span>Aninews</span>
-            </div>
+            {/* Upcoming Anime */}
+            <UpcomingAnime />
             {/* Anime Recommendations */}
             <AnimeRec />
             {/* Manga Recommendations */}
