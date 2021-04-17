@@ -11,7 +11,7 @@ const MangaRec = () => {
             <div className='flex mt-5 flex-wrap'>
                 {listManga && listManga.slice(0, 3).map((manga) => (
                     <a key={manga.mal_id}>
-                        <img className='w-52 h-36 rounded-sm mx-2 shadow-lg hover:shadow-xl' src={manga.image_url} alt='' />
+                        <img className='w-48 h-36 rounded-sm mx-2 shadow-lg hover:shadow-xl' src={manga.image_url} alt='' />
                         <p className=' ml-3 mt-6 font-bold'>{manga.title}</p>
                     </a>
                 ))}
