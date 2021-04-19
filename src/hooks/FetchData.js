@@ -20,30 +20,19 @@ function reducer(state, action) {
             break;
     }
 }
-const FetchData = (URL, SEARCH_URL, input, page) => {
+const FetchData = (URL, page) => {
     const [state, dispatch] = useReducer(reducer, { data: [], loading: false, error: false })
     useEffect(() => {
         dispatch({ type: ACTIONS.MAKE_REQUEST })
-        if (input === '') {
-            axios.get(URL)
-                .then(result => {
-                    dispatch({ type: ACTIONS.GET_DATA, payload: result.data })
-                })
-                .catch(err => {
-                    dispatch({ type: ACTIONS.GET_ERROR })
-                })
-        } else {
-            axios.get(SEARCH_URL)
-                .then(result => {
-                    dispatch({ type: ACTIONS.GET_DATA, payload: result.data })
-                })
-                .catch(err => {
-                    dispatch({ type: ACTIONS.GET_ERROR })
-                })
-        }
+        axios.get(URL)
+            .then(result => {
+                dispatch({ type: ACTIONS.GET_DATA, payload: result.data })
+            })
+            .catch(err => {
+                dispatch({ type: ACTIONS.GET_ERROR })
 
-
-    }, [SEARCH_URL, URL, page])
+            })
+    }, [URL, page])
     return state
 }
 

@@ -1,4 +1,8 @@
 const SearchHeader = ({ input, setInput }) => {
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+    }
     return (
         <div className="mt-7 w-2/3">
             <div className="flex justify-between">
@@ -11,7 +15,6 @@ const SearchHeader = ({ input, setInput }) => {
                         value={input}
                         onChange={e => setInput(e.target.value)}
                     />
-                    <button className="bg-main p-2 text-white rounded">Submit</button>
                 </div>
             </div >
         </div >
