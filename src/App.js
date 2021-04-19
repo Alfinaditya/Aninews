@@ -1,22 +1,25 @@
-import MainHome from './Components/Home/MainHome';
+import Home from './Components/Home/Home';
 import Navbar from './Components/Home/Navbar';
 import SearchHeader from './Components/Home/SearchHeader';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Anime from './Components/Anime/Anime';
+import { useState } from 'react';
 
 function App() {
+  const [input, setInput] = useState('')
   return (
     <div className='App font-quicksand max-w-screen-xl m-auto'>
       <Router>
-        <SearchHeader />
+        <SearchHeader input={input} setInput={setInput} />
         <Switch>
           <div className='mt-12 flex justify-between'>
 
             <Navbar />
             <Route exact path='/'>
-              <MainHome />
+              <Home />
             </Route>
             <Route path='/anime'>
-              <p>Hallo Anime</p>
+              <Anime input={input} />
             </Route>
             <Route path='/news'>
               <p>Hallo News</p>

@@ -2,7 +2,7 @@ import AnimeRec from "./AnimeRec"
 import MangaRec from "./MangaRec"
 import UpcomingAnime from "./UpcomingAnime"
 
-const MainHome = () => {
+const Home = () => {
     return (
         <div className='mt-6'>
             {/* Upcoming Anime */}
@@ -16,4 +16,4 @@ const MainHome = () => {
     )
 }
 
-export default MainHome
+export default Home

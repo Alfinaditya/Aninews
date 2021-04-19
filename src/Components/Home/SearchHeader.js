@@ -1,6 +1,4 @@
-import React from 'react'
-
-const SearchHeader = () => {
+const SearchHeader = ({ input, setInput }) => {
     return (
         <div className="mt-7 w-2/3">
             <div className="flex justify-between">
@@ -10,6 +8,8 @@ const SearchHeader = () => {
                         type="search"
                         className="p-1 w-96 border-2 border-transparant rounded-lg mr-2 outline-none"
                         placeholder="Search something..."
+                        value={input}
+                        onChange={e => setInput(e.target.value)}
                     />
                     <button className="bg-main p-2 text-white rounded">Submit</button>
                 </div>
