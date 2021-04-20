@@ -3,7 +3,7 @@ import FetchData from '../../hooks/FetchData'
 import FetchSearchData from '../../hooks/FetchSearchData'
 import AnimeBody from './AnimeBody'
 import AnimeHeader from './AnimeHeader'
-import AnimePagination from './AnimePagination'
+import Pagination from '../global/Pagination'
 import AnimeSearchBody from './AnimeSearchBody'
 
 const Anime = ({ input }) => {
@@ -26,7 +26,7 @@ const Anime = ({ input }) => {
             <AnimeHeader select={select} setSelect={setSelect} />
             <AnimeSearchBody searchData={searchData} />
             <AnimeBody listAnime={listAnime} />
-            <AnimePagination listAnime={listAnime} page={page} setPage={setPage} />
+            <Pagination data={listAnime} page={page} setPage={setPage} />
         </div >
     )
 }

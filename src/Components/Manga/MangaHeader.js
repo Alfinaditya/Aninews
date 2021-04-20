@@ -1,18 +1,16 @@
 import React from 'react'
 
-const MangaHeader = () => {
+const MangaHeader = ({ select, setSelect }) => {
     return (
-        <div className=' bg-red-500 flex justify-between'>
-            {/* <p className='font-bold text-xl'>New <span className='text-main'>Releases</span></p> */}
-            <p className='font-bold text-xl'>Top <span className='text-main'>Anime</span></p>
-
-            <select className='w-80 outline-none font-medium cursor-pointer'>
-                <option value='airing'>Airing</option>
-                <option value='upcoming' >Upcoming</option>
-                <option value='tv'>TV</option>
-                <option value='movie'>Movie</option>
-                <option value='ova'>Ova</option>
-                <option value='special'>Special</option>
+        <div className='flex justify-between'>
+            <p className='font-bold text-xl'>Top <span className='text-main'>{select}</span></p>
+            <select className='w-80 outline-none font-medium cursor-pointer' onChange={e => setSelect(e.target.value)}>
+                <option value='manga'>Manga</option>
+                <option value='novels' >Novels</option>
+                <option value='oneshots'>One shots</option>
+                <option value='doujin'>Doujin</option>
+                <option value='manhwa'>Manhwa</option>
+                <option value='manhua'>Manhua</option>
             </select>
         </div>
     )

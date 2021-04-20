@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate'
 
-const AnimePagination = ({ listAnime, page, setPage }) => {
+const Pagination = ({ data, page, setPage }) => {
     const changePage = ({ selected }) => {
         setPage(selected)
     }
     return (
         <div className='mb-8'>
-            {listAnime && <ReactPaginate
+            {data && <ReactPaginate
                 // pageCount={listAnime.length > 0 ? page + 2 : page}
                 containerClassName={'flex justify-center items-center'}
                 pageClassName={'px-0.5'}
@@ -23,4 +23,4 @@ const AnimePagination = ({ listAnime, page, setPage }) => {
     )
 }
 
-export default AnimePagination
+export default Pagination
