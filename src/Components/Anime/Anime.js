@@ -12,7 +12,7 @@ const Anime = ({ input }) => {
 
     // URL
     const ANIME_URL = `https://api.jikan.moe/v3/top/anime/${page + 1}/${select}`
-    const SEARCH_ANIME = `https://api.jikan.moe/v3/search/anime?q=${input}&type=anime&order_by=score&page=${page + 1}`
+    const SEARCH_ANIME = `https://api.jikan.moe/v3/search/anime?q=${input}&type=anime&order_by=title&page=${page + 1}`
 
     // Custom Hook
     const { data, loading, error } = FetchData(ANIME_URL, page)

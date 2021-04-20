@@ -4,6 +4,7 @@ import SearchHeader from './Components/Home/SearchHeader';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Anime from './Components/Anime/Anime';
 import { useState } from 'react';
+import Manga from './Components/Manga/Manga';
 
 function App() {
   const [input, setInput] = useState('')
@@ -22,13 +23,16 @@ function App() {
               <Anime input={input} />
             </Route>
             <Route path='/news'>
-              <p>Hallo News</p>
+              <p>Hallo </p>
+            </Route>
+            <Route path='/manga'>
+              <Manga input={input} />
             </Route>
             <Route path='/about-us'>
               <p>Hallo About us</p>
             </Route>
-
           </div>
+
         </Switch>
       </Router>
     </div >

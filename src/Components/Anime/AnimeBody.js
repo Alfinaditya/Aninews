@@ -7,11 +7,11 @@ const AnimeBody = ({ listAnime }) => {
             {listAnime && listAnime.map(anime => (
                 <a className='w-48 mb-10 mx-3' key={anime.mal_id}>
                     <img src={anime.image_url} className='w-48 h-36 rounded-sm shadow-lg hover:shadow-xl '></img>
-                    <p className=' ml-3 mt-6 font-bold'>{anime.title}</p>
-                    <p className=' ml-3 mt-2 font-normal'>
+                    <p className='mt-6 font-bold'>{anime.title}</p>
+                    <p className='mt-2 font-normal'>
                         {anime.start_date} - {anime.end_date === null ? 'Airing' : anime.end_date}
                     </p>
-                    <p className=' ml-3 mt-2 text-main font-bold'>{anime.score}</p>
+                    <p className='mt-2 text-main font-bold'>{anime.score}</p>
                 </a>
             ))}
         </div>
