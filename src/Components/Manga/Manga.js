@@ -3,7 +3,7 @@ import FetchData from '../../hooks/FetchData'
 import FetchSearchData from '../../hooks/FetchSearchData'
 import MangaHeader from './MangaHeader'
 import Pagination from '../global/Pagination'
-import MangaBody from './MangaBody'
+import DataBody from '../global/DataBody'
 
 const Manga = (input) => {
     const [page, setPage] = useState(0)
@@ -22,8 +22,7 @@ const Manga = (input) => {
     return (
         <div>
             <MangaHeader select={select} setSelect={setSelect} />
-            <MangaBody listManga={listManga} />
-            {/* {listManga.length >= 50 && console.log('sama dengan 50')} */}
+            <DataBody shows={listManga} />
             {listManga && listManga.length >= 50 && <Pagination data={listManga} page={page} setPage={setPage} />}
         </div>
     )

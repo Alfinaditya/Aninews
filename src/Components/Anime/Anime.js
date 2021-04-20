@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import FetchData from '../../hooks/FetchData'
 import FetchSearchData from '../../hooks/FetchSearchData'
-import AnimeBody from './AnimeBody'
 import AnimeHeader from './AnimeHeader'
 import Pagination from '../global/Pagination'
 import AnimeSearchBody from './AnimeSearchBody'
+import DataBody from '../global/DataBody'
 
 const Anime = ({ input }) => {
     const [page, setPage] = useState(0)
@@ -25,7 +25,7 @@ const Anime = ({ input }) => {
         <div>
             <AnimeHeader select={select} setSelect={setSelect} />
             <AnimeSearchBody searchData={searchData} />
-            <AnimeBody listAnime={listAnime} />
+            <DataBody shows={listAnime} />
             <Pagination data={listAnime} page={page} setPage={setPage} />
         </div >
     )
