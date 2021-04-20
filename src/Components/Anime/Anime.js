@@ -3,8 +3,8 @@ import FetchData from '../../hooks/FetchData'
 import FetchSearchData from '../../hooks/FetchSearchData'
 import AnimeHeader from './AnimeHeader'
 import Pagination from '../global/Pagination'
-import AnimeSearchBody from './AnimeSearchBody'
 import DataBody from '../global/DataBody'
+import DataSearchBody from '../global/DataSearchBody'
 
 const Anime = ({ input }) => {
     const [page, setPage] = useState(0)
@@ -12,7 +12,7 @@ const Anime = ({ input }) => {
 
     // URL
     const ANIME_URL = `https://api.jikan.moe/v3/top/anime/${page + 1}/${select}`
-    const SEARCH_ANIME = `https://api.jikan.moe/v3/search/anime?q=${input}&type=anime&order_by=title&page=${page + 1}`
+    const SEARCH_ANIME = `https://api.jikan.moe/v3/search/anime?q=${input}&type=${select}&order_by=title&page=${page + 1}`
 
     // Custom Hook
     const { data, loading, error } = FetchData(ANIME_URL, page)
@@ -24,9 +24,9 @@ const Anime = ({ input }) => {
     return (
         <div>
             <AnimeHeader select={select} setSelect={setSelect} />
-            <AnimeSearchBody searchData={searchData} />
+            <DataSearchBody shows={searchData} />
             <DataBody shows={listAnime} />
-            <Pagination data={listAnime} page={page} setPage={setPage} />
+            {listAnime && listAnime.length >= 50 && <Pagination data={listAnime} page={page} setPage={setPage} />}
         </div >
     )
 }
