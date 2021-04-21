@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Anime from './Components/Anime/Anime';
 import { useState } from 'react';
 import Manga from './Components/Manga/Manga';
+import Details from './Components/global/Details';
 
 function App() {
   const [input, setInput] = useState('')
@@ -19,17 +20,23 @@ function App() {
             <Route exact path='/'>
               <Home />
             </Route>
-            <Route path='/anime'>
+            <Route exact path='/anime'>
               <Anime input={input} />
             </Route>
             <Route path='/news'>
               <p>Hallo </p>
             </Route>
-            <Route path='/manga'>
+            <Route exact path='/manga'>
               <Manga input={input} />
             </Route>
             <Route path='/about-us'>
               <p>Hallo About us</p>
+            </Route>
+            <Route path='/anime/:id'>
+              <Details />
+            </Route>
+            <Route path='/manga/:id'>
+              <Details />
             </Route>
           </div>
 

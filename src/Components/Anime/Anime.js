@@ -11,8 +11,14 @@ const Anime = ({ input }) => {
     const [select, setSelect] = useState('airing')
 
     // URL
+    let SEARCH_ANIME;
     const ANIME_URL = `https://api.jikan.moe/v3/top/anime/${page + 1}/${select}`
-    const SEARCH_ANIME = `https://api.jikan.moe/v3/search/anime?q=${input}&type=${select}&order_by=title&page=${page + 1}`
+    if (select === 'airing' || select === 'upcoming') {
+        SEARCH_ANIME = `https://api.jikan.moe/v3/search/anime?q=${input}&status=${select}g&order_by=title`
+    } else {
+        SEARCH_ANIME = `https://api.jikan.moe/v3/search/anime?q=${input}&type=${select}&order_by=title`
+    }
+
 
     // Custom Hook
     const { data, loading, error } = FetchData(ANIME_URL, page)
@@ -25,8 +31,14 @@ const Anime = ({ input }) => {
         <div>
             <AnimeHeader select={select} setSelect={setSelect} />
             <DataSearchBody shows={searchData} />
-            <DataBody shows={listAnime} />
-            {listAnime && listAnime.length >= 50 && <Pagination data={listAnime} page={page} setPage={setPage} />}
+
+            {/* if array search data less than one or null */}
+            {searchData && searchData.length < 1 &&
+                <>
+                    <DataBody shows={listAnime} />
+                    {listAnime && listAnime.length >= 50 && <Pagination data={listAnime} page={page} setPage={setPage} />}
+                </>
+            }
         </div >
     )
 }
