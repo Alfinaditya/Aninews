@@ -13,10 +13,12 @@ module.exports = {
         blue: {
           primary: '#5986FB'
         }
-
       },
       width: {
         half: '40%',
+      },
+      margin: {
+        '13': '3.3rem',
       },
       fontFamily: {
         quicksand: ['Quicksand', 'sans-serif'],
