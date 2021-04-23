@@ -19,6 +19,13 @@ const SearchHeader = ({ input, setInput }) => {
             <></>
         )
     }
+    if (location.pathname === '/about-us') {
+        return (
+            <div className='mt-7'>
+                <h1 className='text-3xl text-main font-roboto font-bold'> Aninews</h1>
+            </div >
+        )
+    }
     else {
         return (
             <div className="mt-7 w-2/3">

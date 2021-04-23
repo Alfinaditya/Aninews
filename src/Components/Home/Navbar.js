@@ -24,6 +24,7 @@ const Navbar = () => {
             <div className='App_navbar'>
                 <nav>
                     <ul className='flex flex-col'>
+
                         <li className='text-lg py-5'>
                             <Link to='/' className='flex'>
                                 {location.pathname === '/' ?
@@ -38,6 +39,7 @@ const Navbar = () => {
                                 }
                             </Link>
                         </li>
+
                         <li className='text-lg py-5'>
                             <Link to='/anime' className='flex'>
                                 {location.pathname === '/anime' ?
@@ -53,6 +55,7 @@ const Navbar = () => {
                                 }
                             </Link>
                         </li>
+
                         <li className='text-lg py-5'>
                             <Link to='/manga' className='flex'>
                                 {location.pathname === '/manga' ?
@@ -68,6 +71,7 @@ const Navbar = () => {
                                 }
                             </Link>
                         </li>
+
                         <li className='text-lg py-5'>
                             <Link to='about-us' className='flex'>
                                 {location.pathname === '/about-us' ?
@@ -83,6 +87,7 @@ const Navbar = () => {
                                 }
                             </Link>
                         </li>
+
                     </ul>
                 </nav>
             </div>

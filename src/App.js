@@ -7,6 +7,7 @@ import { useState } from 'react';
 import Manga from './Components/Manga/Manga';
 import AnimeDetails from './Components/Details/Anime/AnimeDetails';
 import MangaDetails from './Components/Details/Manga/MangaDetails';
+import About from './Components/About-us/About';
 
 function App() {
   const [input, setInput] = useState('')
@@ -28,7 +29,7 @@ function App() {
               <Manga input={input} />
             </Route>
             <Route path='/about-us'>
-              <p>Hallo About us</p>
+              <About />
             </Route>
             <Route path='/anime/:id'>
               <AnimeDetails />
