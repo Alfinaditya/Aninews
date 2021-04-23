@@ -1,12 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const DataSearchBody = ({ shows }) => {
     return (
         <div className='grid grid-cols-5 mt-8'>
             {shows && shows.map(show => {
+                const path = setPath(show)
                 const { start_date_month, end_date_month, start_date_year, end_date_year } = convertIsoDateToDateFormat(show)
                 return (
-                    <a className='w-48 mb-10 mx-3' key={show.mal_id}>
+                    <Link to={path} className='w-48 mb-10 mx-3' key={show.mal_id}>
                         <img src={show.image_url} className='w-48 h-36 rounded-sm shadow-lg hover:shadow-xl '></img>
                         <p className='mt-6 font-bold'>{show.title}</p>
                         <p className='mt-2 font-normal'>
@@ -14,13 +16,21 @@ const DataSearchBody = ({ shows }) => {
                             {show.end_date === null ? 'Airing' : ` ${end_date_month} ${end_date_year}`}
                         </p>
                         <p className='mt-2 text-main font-bold'>{show.score}</p>
-                    </a>
+                    </Link>
                 )
             })}
 
         </div>
     )
 }
+
+function setPath(show) {
+    const animeType = ['TV', 'Movie', 'OVA', 'ONA', 'Special']
+    const mangaType = ['Manga', 'Novel', 'One', 'Doujinshi', 'Manhwa', 'Manhua']
+    if (animeType.includes(show.type)) return `anime/${show.mal_id}`
+    if (mangaType.includes(show.type)) return `manga/${show.mal_id}`
+}
+
 function convertIsoDateToDateFormat(show) {
     const start_date = new Date(show.start_date)
     const end_date = new Date(show.end_date)
