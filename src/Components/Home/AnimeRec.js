@@ -12,10 +12,10 @@ const AnimeRec = () => {
             <p className='font-bold text-xl'>Anime <span className='text-main'>recommendations</span></p>
             <div className='grid grid-cols-5 mt-8'>
                 {listAnime && listAnime.slice(0, 15).map((anime) => (
-                    <a key={anime.mal_id} className='w-48 mb-10 mx-3'>
+                    <Link to={`anime/${anime.mal_id}`} key={anime.mal_id} className='w-48 mb-10 mx-3 cursor-pointer'>
                         <img className='w-48 h-36 rounded-sm shadow-lg hover:shadow-xl' src={anime.image_url} alt='' />
                         <p className='mt-6 font-bold'>{anime.title}</p>
-                    </a>
+                    </Link>
                 ))}
             </div>
             <Link to='/anime'>

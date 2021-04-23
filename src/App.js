@@ -24,9 +24,6 @@ function App() {
             <Route exact path='/anime'>
               <Anime input={input} />
             </Route>
-            <Route path='/news'>
-              <p>Hallo </p>
-            </Route>
             <Route exact path='/manga'>
               <Manga input={input} />
             </Route>
