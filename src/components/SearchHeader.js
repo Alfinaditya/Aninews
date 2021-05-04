@@ -3,9 +3,8 @@ import { useLocation, useParams } from "react-router"
 
 const SearchHeader = ({ input, setInput }) => {
     const location = useLocation()
-
     // conditional rendering,if path location in anime/:id || /manga/:id,then return empty element
-    const animeReg = pathToRegexp('/anime/:id');
+    const animeReg = pathToRegexp('/anime/:id')
     const mangaReg = pathToRegexp('/manga/:id')
     const mangaParams = mangaReg.exec(location.pathname)
     const animeParams = animeReg.exec(location.pathname)
@@ -20,6 +19,13 @@ const SearchHeader = ({ input, setInput }) => {
         )
     }
     if (location.pathname === '/about-us') {
+        return (
+            <div className='mt-7'>
+                <h1 className='text-3xl text-main font-roboto font-bold'> Aninews</h1>
+            </div >
+        )
+    }
+    if (location.pathname === '/') {
         return (
             <div className='mt-7'>
                 <h1 className='text-3xl text-main font-roboto font-bold'> Aninews</h1>
