@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import FetchData from '../../hooks/FetchData'
 import FetchSearchData from '../../hooks/FetchSearchData'
-import MangaHeader from './MangaHeader'
-import Pagination from '../global/Pagination'
-import DataSearchBody from '../global/DataSearchBody'
-import DataBody from '../global/DataBody'
+import Header from './components/Header'
+import Pagination from '../../components/Pagination'
+import DataSearchBody from '../../components/DataSearchBody'
+import DataBody from '../../components/DataBody'
 
 const Manga = ({ input }) => {
     const [page, setPage] = useState(0)
@@ -22,7 +22,7 @@ const Manga = ({ input }) => {
 
     return (
         <div>
-            <MangaHeader select={select} setSelect={setSelect} />
+            <Header select={select} setSelect={setSelect} />
             <DataSearchBody shows={searchData} />
             <DataBody shows={listManga} />
             {listManga && listManga.length >= 50 && <Pagination data={listManga} page={page} setPage={setPage} />}

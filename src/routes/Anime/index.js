@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import FetchData from '../../hooks/FetchData'
 import FetchSearchData from '../../hooks/FetchSearchData'
-import AnimeHeader from './AnimeHeader'
-import Pagination from '../global/Pagination'
-import DataBody from '../global/DataBody'
-import DataSearchBody from '../global/DataSearchBody'
+import Header from './components/Header'
+import Pagination from '../../components/Pagination'
+import DataBody from '../../components/DataBody'
+import DataSearchBody from '../../components/DataSearchBody'
 
 const Anime = ({ input }) => {
     const [page, setPage] = useState(0)
@@ -29,7 +29,7 @@ const Anime = ({ input }) => {
 
     return (
         <div>
-            <AnimeHeader select={select} setSelect={setSelect} />
+            <Header select={select} setSelect={setSelect} />
             <DataSearchBody shows={searchData} />
 
             {/* if array search data less than one or null */}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router'
 
-const AnimeDetailsAndScore = ({ anime }) => {
+const DetailsAndScore = ({ anime }) => {
     const history = useHistory()
     return (
         <div>
@@ -17,4 +17,4 @@ const AnimeDetailsAndScore = ({ anime }) => {
     )
 }
 
-export default AnimeDetailsAndScore
+export default DetailsAndScore

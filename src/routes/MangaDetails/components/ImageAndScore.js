@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router'
 
-const MangaImagesAndScore = ({ manga }) => {
+const ImagesAndScore = ({ manga }) => {
     const history = useHistory()
     return (
         <div>
@@ -17,4 +17,4 @@ const MangaImagesAndScore = ({ manga }) => {
     )
 }
 
-export default MangaImagesAndScore
+export default ImagesAndScore

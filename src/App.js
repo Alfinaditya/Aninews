@@ -1,13 +1,13 @@
-import Home from './components/Home/Home';
-import Navbar from './components/Home/Navbar';
-import SearchHeader from './components/Home/SearchHeader';
+import Home from './routes/Home';
+import Navbar from './routes/Home/components/Navbar';
+import SearchHeader from './components/SearchHeader';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Anime from './components/Anime/Anime';
+import Anime from './routes/Anime';
 import { useState } from 'react';
-import Manga from './components/Manga/Manga';
+import Manga from './routes/Manga';
 import AnimeDetails from './routes/AnimeDetails';
-import MangaDetails from './components/Details/MangaDetails/MangaDetails';
-import About from './components/About-us/About';
+import MangaDetails from './routes/MangaDetails';
+import AboutUs from './routes/AboutUs';
 
 function App() {
   const [input, setInput] = useState('')
@@ -29,7 +29,7 @@ function App() {
               <Manga input={input} />
             </Route>
             <Route path='/about-us'>
-              <About />
+              <AboutUs />
             </Route>
             <Route path='/anime/:id'>
               <AnimeDetails />

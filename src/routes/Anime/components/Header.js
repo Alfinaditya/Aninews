@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AnimeHeader = ({ select, setSelect }) => {
+const Header = ({ select, setSelect }) => {
     return (
         <div className='flex justify-between'>
             {select === 'airing' || select === 'upcoming' ?
@@ -19,4 +19,4 @@ const AnimeHeader = ({ select, setSelect }) => {
     )
 }
 
-export default AnimeHeader
+export default Header

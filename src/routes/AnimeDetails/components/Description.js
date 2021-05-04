@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AnimeDescriptions = ({ anime }) => {
+const Description = ({ anime }) => {
     return (
         <div className='w-3/5'>
 
@@ -47,4 +47,4 @@ const AnimeDescriptions = ({ anime }) => {
     )
 }
 
-export default AnimeDescriptions
+export default Description

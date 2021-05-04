@@ -1,6 +1,6 @@
-import AnimeRec from "./AnimeRec"
-import MangaRec from "./MangaRec"
-import UpcomingAnime from "./UpcomingAnime"
+import AnimeRec from './components/AnimeRec'
+import MangaRec from './components/MangaRec'
+import UpcomingAnime from './components/UpcomingAnime'
 
 const Home = () => {
     return (

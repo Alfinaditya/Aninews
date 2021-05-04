@@ -1,8 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router'
-import FetchData from '../../../hooks/FetchData'
-import MangaDescriptions from './MangaDescriptions'
-import MangaImagesAndScore from './MangaImagesAndScore'
+import FetchData from '../../hooks/FetchData'
+import Description from './components/Description'
+import ImagesAndScore from './components/ImageAndScore'
 
 const MangaDetails = () => {
     const { id } = useParams()
@@ -13,8 +13,8 @@ const MangaDetails = () => {
     return (
         <div className='max-w-6xl px-4'>
             <div className='flex justify-between '>
-                <MangaImagesAndScore manga={manga} />
-                <MangaDescriptions manga={manga} />
+                <ImagesAndScore manga={manga} />
+                <Description manga={manga} />
             </div>
         </div>
     )

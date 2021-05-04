@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import FetchData from '../../hooks/FetchData'
+import FetchData from '../../../hooks/FetchData'
 
 const UpcomingAnime = () => {
     const UPCOMING_ANIME = 'https://api.jikan.moe/v3/top/anime/1/upcoming'

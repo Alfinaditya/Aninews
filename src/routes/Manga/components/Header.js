@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MangaHeader = ({ select, setSelect }) => {
+const Header = ({ select, setSelect }) => {
     return (
         <div className='flex justify-between'>
             <p className='font-bold text-xl'>Top <span className='text-main capitalize'>{select}</span></p>
@@ -16,4 +16,4 @@ const MangaHeader = ({ select, setSelect }) => {
     )
 }
 
-export default MangaHeader
+export default Header

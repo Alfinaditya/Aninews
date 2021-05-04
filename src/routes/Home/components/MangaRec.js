@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import FetchData from '../../hooks/FetchData'
+import FetchData from '../../../hooks/FetchData'
 
 const MangaRec = () => {
     const MANGA_URL = 'https://api.jikan.moe/v3/manga/1/recommendations'

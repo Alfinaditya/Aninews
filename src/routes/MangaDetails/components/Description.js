@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MangaDescriptions = ({ manga }) => {
+const Description = ({ manga }) => {
     return (
         <div className='w-3/5'>
 
@@ -36,4 +36,4 @@ const MangaDescriptions = ({ manga }) => {
     )
 }
 
-export default MangaDescriptions
+export default Description

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import FetchData from '../../hooks/FetchData'
+import FetchData from '../../../hooks/FetchData'
 
 const AnimeRec = () => {
     const ANIME_URL = 'https://api.jikan.moe/v3/anime/1/recommendations'
