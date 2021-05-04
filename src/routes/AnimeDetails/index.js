@@ -8,15 +8,17 @@ const AnimeDetails = () => {
 
     const { id } = useParams()
     const ANIME_URL = `https://api.jikan.moe/v3/anime/${id}`
-    const { data } = FetchData(ANIME_URL)
+    const { data, loading } = FetchData(ANIME_URL)
     const anime = data
 
     return (
         <div className='max-w-6xl px-4'>
-            <div className='flex justify-between '>
-                <DetailsAndScore anime={anime} />
-                <Description anime={anime} />
-            </div >
+            {loading ? <h1>Loading...</h1> :
+                <div className='flex justify-between '>
+                    <DetailsAndScore anime={anime} />
+                    <Description anime={anime} />
+                </div >
+            }
         </div >
     )
 }

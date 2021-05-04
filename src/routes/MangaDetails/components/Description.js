@@ -3,9 +3,7 @@ import React from 'react'
 const Description = ({ manga }) => {
     return (
         <div className='w-3/5'>
-
             <h1 className='font-quicksand font-medium text-3xl'>{manga.title}</h1>
-
 
             {/*Manga Synopsis  */}
             <p className='font-roboto font-light mt-3'>{manga.synopsis}</p>
