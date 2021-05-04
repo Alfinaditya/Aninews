@@ -1,13 +1,13 @@
-import Home from './Components/Home/Home';
-import Navbar from './Components/Home/Navbar';
-import SearchHeader from './Components/Home/SearchHeader';
+import Home from './components/Home/Home';
+import Navbar from './components/Home/Navbar';
+import SearchHeader from './components/Home/SearchHeader';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Anime from './Components/Anime/Anime';
+import Anime from './components/Anime/Anime';
 import { useState } from 'react';
-import Manga from './Components/Manga/Manga';
-import AnimeDetails from './Components/Details/Anime/AnimeDetails';
-import MangaDetails from './Components/Details/Manga/MangaDetails';
-import About from './Components/About-us/About';
+import Manga from './components/Manga/Manga';
+import AnimeDetails from './routes/AnimeDetails';
+import MangaDetails from './components/Details/MangaDetails/MangaDetails';
+import About from './components/About-us/About';
 
 function App() {
   const [input, setInput] = useState('')

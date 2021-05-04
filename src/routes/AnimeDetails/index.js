@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router'
 import FetchData from '../../../hooks/FetchData';
-import AnimeDescriptions from './AnimeDescriptions';
-import AnimeDetailsAndScore from './AnimeDetailsAndScore';
+import AnimeDescriptions from './components/Description';
+import AnimeDetailsAndScore from './components/DetailsAndScore';
 
 const AnimeDetails = () => {
 
