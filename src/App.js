@@ -12,7 +12,7 @@ import AboutUs from './routes/AboutUs';
 function App() {
   const [input, setInput] = useState('')
   // Hamburger Menu
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
   return (
     <div className='App font-quicksand max-w-screen-xl m-auto'>
       <Router>
