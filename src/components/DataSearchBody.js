@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const DataSearchBody = ({ shows }) => {
     return (
-        <div className='grid justify-center xl:grid-cols-5 lg:grid-cols-4 mt-8 md:grid-cols-3'>
+        <div className='grid justify-center xl:grid-cols-5 lg:grid-cols-4 mt-8 sm:grid-cols-3'>
             {shows && shows.map(show => {
                 const path = setPath(show)
                 const { start_date_month, end_date_month, start_date_year, end_date_year } = convertIsoDateToDateFormat(show)

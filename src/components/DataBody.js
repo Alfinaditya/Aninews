@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { StarIcon } from '@heroicons/react/outline';
 const DataBody = ({ shows }) => {
     return (
-        <div className='mt-8 justify-center grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3'>
+        <div className='mt-8 justify-center grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3'>
             {shows && shows.map(show => {
                 const path = setPath(show)
                 return (

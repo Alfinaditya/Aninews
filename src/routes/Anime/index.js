@@ -28,7 +28,7 @@ const Anime = ({ input }) => {
     const listAnime = data.top
 
     return (
-        <div className='lg:w-5/6 md:w-full'>
+        <div className='lg:w-5/6 sm:w-full'>
             <Header select={select} setSelect={setSelect} />
             <DataSearchBody shows={searchData} />
 
