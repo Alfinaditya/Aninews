@@ -3,7 +3,6 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { HomeIcon, FilmIcon, BookmarkAltIcon, UserGroupIcon } from '@heroicons/react/outline';
 const Navbar = ({ open }) => {
-    console.log(open)
     const location = useLocation()
 
     // conditional rendering,if path location in anime/:id || /manga/:id,then return empty element
@@ -25,7 +24,7 @@ const Navbar = ({ open }) => {
         return (
             <div className={`lg:bg-white md:bg-main lg:static md:fixed md:top-0 md:h-full lg:w-1/6 md:w-1/3 lg:block ${!open && `hidden`}`}>
                 <nav>
-                    <ul className='flex flex-col'>
+                    <ul className='flex flex-col md:pt-20 lg:pt-0'>
 
                         <li className='text-lg py-5'>
                             <Link to='/' className='flex'>

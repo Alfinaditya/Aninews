@@ -23,7 +23,7 @@ const SearchHeader = ({ input, setInput, setOpen, open }) => {
         return (
             <div className='mt-7'>
                 <h1 className='text-3xl text-main font-roboto font-bold hidden lg:block'> Aninews</h1>
-                <MenuAlt1Icon onClick={() => { setOpen(!open) }} className={`w-8 h-8 text-main mr-2 block lg:hidden md:relative md:z-10 ${open && `md:text-white`}`} />
+                <MenuAlt1Icon onClick={() => { setOpen(!open) }} className={`w-8 h-8 text-main ml-9 mr-2 block lg:hidden md:relative md:z-10 ${open && `md:text-white md:ml-40`}`} />
             </div >
         )
     }
@@ -31,7 +31,7 @@ const SearchHeader = ({ input, setInput, setOpen, open }) => {
         return (
             <div className='mt-7 lg:ml-3'>
                 <h1 className='text-3xl text-main font-roboto font-bold hidden lg:block'> Aninews</h1>
-                <MenuAlt1Icon onClick={() => { setOpen(!open) }} className={`w-8 h-8 text-main mr-2 block lg:hidden md:relative md:z-10 ${open && `md:text-white`}`} />
+                <MenuAlt1Icon onClick={() => { setOpen(!open) }} className={`w-8 h-8 text-main ml-9 mr-2 block lg:hidden md:relative md:z-10 ${open && `md:text-white md:ml-40`}`} />
             </div >
         )
     }
