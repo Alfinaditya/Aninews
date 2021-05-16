@@ -2,7 +2,7 @@ import React from 'react'
 
 const Description = ({ anime }) => {
     return (
-        <div className='w-3/5'>
+        <div className='lg:w-3/5 md:w-full'>
 
             <h1 className='font-quicksand font-medium text-3xl'>{anime.title}</h1>
             {/* Anime Video */}
