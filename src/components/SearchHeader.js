@@ -23,7 +23,7 @@ const SearchHeader = ({ input, setInput, setOpen, open }) => {
         return (
             <div className='mt-7'>
                 <h1 className='text-3xl text-main font-roboto font-bold hidden lg:block'> Aninews</h1>
-                <MenuAlt1Icon onClick={() => { setOpen(!open) }} className={`w-8 h-8 text-main ml-9 mr-2 block lg:hidden md:relative md:z-10 ${open && `md:text-white md:ml-40`}`} />
+                <MenuAlt1Icon onClick={() => { setOpen(!open) }} className='text-main w-8 h-8 ml-9 mr-2 block lg:hidden' />
             </div >
         )
     }
@@ -31,25 +31,25 @@ const SearchHeader = ({ input, setInput, setOpen, open }) => {
         return (
             <div className='mt-7 lg:ml-3'>
                 <h1 className='text-3xl text-main font-roboto font-bold hidden lg:block'> Aninews</h1>
-                <MenuAlt1Icon onClick={() => { setOpen(!open) }} className={`w-8 h-8 text-main ml-9 mr-2 block lg:hidden md:relative md:z-10 ${open && `md:text-white md:ml-40`}`} />
+                <MenuAlt1Icon onClick={() => { setOpen(!open) }} className=' text-main w-8 h-8 ml-9 mr-2 block lg:hidden' />
             </div >
         )
     }
     else {
         return (
-            <div className="mt-7 lg:w-2/3 lg:ml-3">
-                <div className="flex lg:justify-between md:items-center md:justify-center lg:flex-row md:flex-row-reverse">
+            <div className="mt-7 lg:w-2/3 lg:ml-3 w-full">
+                <div className="flex flex-row-reverse lg:justify-between sm:items-center sm:justify-center lg:flex-row">
                     <h1 className="text-3xl text-main font-roboto font-bold hidden lg:block"> Aninews</h1>
-                    <div>
+                    <div className='sm:w-1/2 w-4/5 m-auto sm:m-px'>
                         <input
                             type="search"
-                            className="p-1 w-96 border-2 border-transparant rounded-lg mr-2 outline-none"
+                            className="p-1 sm:w-96 w-full border-2 border-transparant rounded-lg mr-2 outline-none"
                             placeholder="Search something..."
                             value={input}
                             onChange={e => setInput(e.target.value)}
                         />
                     </div>
-                    <MenuAlt1Icon onClick={() => { setOpen(!open) }} className={`w-8 h-8 text-main mr-2 block lg:hidden md:relative md:z-10 ${open && `md:text-white`}`} />
+                    <MenuAlt1Icon onClick={() => { setOpen(!open) }} className='w-8 h-8 ml-1 mr-2 block text-main lg:hidden' />
                 </div >
             </div >
         )

@@ -9,8 +9,8 @@ const Pagination = ({ data, page, setPage }) => {
         <div className='mb-8'>
             {data && <ReactPaginate
                 // pageCount={listAnime.length > 0 ? page + 2 : page}
-                containerClassName={'flex justify-center items-center'}
-                pageClassName={'px-0.5'}
+                containerClassName={'flex justify-center flex-wrap items-center'}
+                pageClassName={'px-0.5 mb-7'}
                 initialPage={page}
                 activeLinkClassName={'text-white bg-main'}
                 pageLinkClassName={'py-2 px-5 bg-gray-200 outline-none'}

@@ -14,13 +14,13 @@ function App() {
   // Hamburger Menu
   const [open, setOpen] = useState(true)
   return (
-    <div className='App font-quicksand max-w-screen-xl m-auto'>
+    <div className='App font-quicksand max-w-screen-xl sm:bg-yellow-300 m-auto'>
       <Router>
         <SearchHeader input={input} setInput={setInput} setOpen={setOpen} open={open} />
         <Switch>
           <div className='mt-12 flex justify-between'>
 
-            <Navbar open={open} />
+            <Navbar open={open} setOpen={setOpen} />
             <Route exact path='/'>
               <Home />
             </Route>
