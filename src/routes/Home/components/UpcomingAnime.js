@@ -4,7 +4,7 @@ import FetchData from '../../../hooks/FetchData'
 
 const UpcomingAnime = () => {
     const UPCOMING_ANIME = 'https://api.jikan.moe/v3/top/anime/1/upcoming'
-    const { data, loading, error } = FetchData(UPCOMING_ANIME)
+    const { data } = FetchData(UPCOMING_ANIME)
     const listAnime = data.top
     return (
         <div>

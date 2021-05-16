@@ -21,8 +21,8 @@ const Anime = ({ input }) => {
 
 
     // Custom Hook
-    const { data, loading, error } = FetchData(ANIME_URL, page)
-    const { searchData, searchLoading, searchError } = FetchSearchData(SEARCH_ANIME, input)
+    const { data } = FetchData(ANIME_URL, page)
+    const { searchData } = FetchSearchData(SEARCH_ANIME, input)
 
     // list Anime Body
     const listAnime = data.top

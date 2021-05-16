@@ -15,8 +15,8 @@ const Manga = ({ input }) => {
     const SEARCH_MANGA = `https://api.jikan.moe/v3/search/manga?q=${input}&type=${select}&order_by=title&page=${page + 1}`
 
     // CUSTOM HOOK
-    const { data, loading, error } = FetchData(MANGA_URL, page)
-    const { searchData, searchLoading, searchError } = FetchSearchData(SEARCH_MANGA, input)
+    const { data } = FetchData(MANGA_URL, page)
+    const { searchData } = FetchSearchData(SEARCH_MANGA, input)
 
     const listManga = data.top
 

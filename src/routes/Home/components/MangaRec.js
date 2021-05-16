@@ -4,7 +4,7 @@ import FetchData from '../../../hooks/FetchData'
 
 const MangaRec = () => {
     const MANGA_URL = 'https://api.jikan.moe/v3/manga/1/recommendations'
-    const { data, loading, error } = FetchData(MANGA_URL)
+    const { data } = FetchData(MANGA_URL)
     const listManga = data.recommendations
     return (
         <div className='mt-12 mb-10'>

@@ -17,10 +17,9 @@ function App() {
     <div className='App font-quicksand max-w-screen-xl m-auto'>
       <Router>
         <SearchHeader input={input} setInput={setInput} setOpen={setOpen} open={open} />
-        <Switch>
-          <div className='mt-12 flex justify-between'>
-
-            <Navbar open={open} setOpen={setOpen} />
+        <div className='mt-12 flex justify-between'>
+          <Navbar open={open} setOpen={setOpen} />
+          <Switch>
             <Route exact path='/'>
               <Home />
             </Route>
@@ -39,9 +38,8 @@ function App() {
             <Route path='/manga/:id'>
               <MangaDetails />
             </Route>
-          </div>
-
-        </Switch>
+          </Switch>
+        </div>
       </Router>
     </div >
 

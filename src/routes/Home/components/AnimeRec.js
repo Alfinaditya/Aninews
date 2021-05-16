@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import FetchData from '../../../hooks/FetchData'
 
 const AnimeRec = () => {
     const ANIME_URL = 'https://api.jikan.moe/v3/anime/1/recommendations'
-    const { data, loading, error } = FetchData(ANIME_URL)
+    const { data } = FetchData(ANIME_URL)
     const listAnime = data.recommendations
     return (
         <div className='mt-12 mb-20'>
