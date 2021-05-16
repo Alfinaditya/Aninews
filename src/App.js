@@ -14,7 +14,7 @@ function App() {
   // Hamburger Menu
   const [open, setOpen] = useState(true)
   return (
-    <div className='App font-quicksand max-w-screen-xl sm:bg-yellow-300 m-auto'>
+    <div className='App font-quicksand max-w-screen-xl m-auto'>
       <Router>
         <SearchHeader input={input} setInput={setInput} setOpen={setOpen} open={open} />
         <Switch>

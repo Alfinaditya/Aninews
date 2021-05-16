@@ -14,7 +14,7 @@ const AnimeDetails = () => {
     return (
         <div className='max-w-6xl px-4'>
             {loading ? <h1>Loading...</h1> :
-                <div className='flex lg:justify-between flex-wrap md:justify-center'>
+                <div className='flex lg:justify-between flex-wrap justify-center'>
                     <DetailsAndScore anime={anime} />
                     <Description anime={anime} />
                 </div >
