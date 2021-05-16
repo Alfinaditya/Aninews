@@ -10,6 +10,7 @@ import MangaDetails from './routes/MangaDetails';
 import AboutUs from './routes/AboutUs';
 
 function App() {
+  // Search Header
   const [input, setInput] = useState('')
   // Hamburger Menu
   const [open, setOpen] = useState(false)

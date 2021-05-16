@@ -8,7 +8,7 @@ const UpcomingAnime = () => {
     const listAnime = data.top
     return (
         <div>
-            <p className='font-bold text-xl md:ml-4'><span className='text-main'>Upcoming</span> anime</p>
+            <p className='font-bold text-xl md:ml-4 sm:text-left  text-center'><span className='text-main'>Upcoming</span> anime</p>
             <div className='grid justify-center xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 mt-8'>
                 {listAnime && listAnime.slice(0, 10).map((anime) => (
                     <Link to={`anime/${anime.mal_id}`} key={anime.mal_id} className='w-48 mb-10 mx-3' >

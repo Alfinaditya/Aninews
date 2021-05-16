@@ -1,7 +1,7 @@
 import { pathToRegexp } from 'path-to-regexp';
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { HomeIcon, FilmIcon, BookmarkAltIcon, UserGroupIcon, MenuAlt1Icon } from '@heroicons/react/outline';
+import { HomeIcon, FilmIcon, BookmarkAltIcon, UserGroupIcon, XIcon } from '@heroicons/react/outline';
 const Navbar = ({ open, setOpen }) => {
     const location = useLocation()
 
@@ -25,7 +25,7 @@ const Navbar = ({ open, setOpen }) => {
             <div className={`lg:bg-white bg-main lg:static fixed top-0 h-full sm:w-1/3 w-1/2 lg:w-1/6 lg:block ${!open && `hidden`}`}>
                 <nav>
                     {/* Hamburger Menu */}
-                    <MenuAlt1Icon onClick={() => { setOpen(!open) }} className='text-white ml-auto mr-7 w-8 h-8 block text-whites mt-6 lg:hidden' />
+                    <XIcon onClick={() => { setOpen(!open) }} className='text-white ml-auto mr-7 w-8 h-8 block text-whites mt-6 lg:hidden' />
                     <ul className='flex flex-col pt-16 lg:pt-0'>
                         <li className='text-lg py-5'>
                             <Link to='/' className='flex'>

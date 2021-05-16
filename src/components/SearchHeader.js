@@ -21,16 +21,16 @@ const SearchHeader = ({ input, setInput, setOpen, open }) => {
     }
     if (location.pathname === '/about-us') {
         return (
-            <div className='mt-7'>
-                <h1 className='text-3xl text-main font-roboto font-bold hidden lg:block'> Aninews</h1>
+            <div className='flex sm:block justify-between flex-row-reverse mt-7 lg:ml-3 sm:w-full w-4/6'>
+                <h1 className='text-3xl text-main font-roboto font-bold block sm:hidden lg:block'> Aninews</h1>
                 <MenuAlt1Icon onClick={() => { setOpen(!open) }} className='text-main w-8 h-8 ml-9 mr-2 block lg:hidden' />
             </div >
         )
     }
     if (location.pathname === '/') {
         return (
-            <div className='mt-7 lg:ml-3'>
-                <h1 className='text-3xl text-main font-roboto font-bold hidden lg:block'> Aninews</h1>
+            <div className='flex sm:block justify-between flex-row-reverse mt-7 lg:ml-3 sm:w-full w-4/6'>
+                <h1 className='text-3xl text-main font-roboto font-bold block sm:hidden lg:block'> Aninews</h1>
                 <MenuAlt1Icon onClick={() => { setOpen(!open) }} className=' text-main w-8 h-8 ml-9 mr-2 block lg:hidden' />
             </div >
         )

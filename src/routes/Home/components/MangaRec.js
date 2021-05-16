@@ -8,7 +8,7 @@ const MangaRec = () => {
     const listManga = data.recommendations
     return (
         <div className='mt-12 mb-10'>
-            <p className='font-bold text-xl'>Manga <span className='text-main'>recommendations</span></p>
+            <p className='font-bold text-xl sm:text-left text-center'>Manga <span className='text-main'>recommendations</span></p>
             <div className='grid justify-center xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 mt-8'>
                 {listManga && listManga.slice(0, 15).map((manga) => (
                     <Link to={`manga/${manga.mal_id}`} key={manga.mal_id} className='w-48 mb-10 mx-3'>
