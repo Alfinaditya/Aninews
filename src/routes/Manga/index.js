@@ -21,7 +21,7 @@ const Manga = ({ input }) => {
     const listManga = data.top
 
     return (
-        <div>
+        <div className='lg:w-5/6 md:w-full'>
             <Header select={select} setSelect={setSelect} />
             <DataSearchBody shows={searchData} />
             <DataBody shows={listManga} />

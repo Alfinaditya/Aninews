@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const DataSearchBody = ({ shows }) => {
     return (
-        <div className='grid grid-cols-5 mt-8'>
+        <div className='grid xl:grid-cols-5 lg:grid-cols-4 mt-8'>
             {shows && shows.map(show => {
                 const path = setPath(show)
                 const { start_date_month, end_date_month, start_date_year, end_date_year } = convertIsoDateToDateFormat(show)
@@ -25,7 +25,7 @@ const DataSearchBody = ({ shows }) => {
 }
 
 function setPath(show) {
-    const animeType = ['TV', 'Movie', 'OVA', 'ONA', 'Special']
+    const animeType = ['TV', 'Movie', 'OVA', 'ONA', 'Special', 'Music']
     const mangaType = ['Manga', 'Novel', 'One', 'Doujinshi', 'Manhwa', 'Manhua']
     if (animeType.includes(show.type)) return `anime/${show.mal_id}`
     if (mangaType.includes(show.type)) return `manga/${show.mal_id}`

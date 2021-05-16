@@ -1,5 +1,5 @@
 import Home from './routes/Home';
-import Navbar from './routes/Home/components/Navbar';
+import Navbar from './components/Navbar';
 import SearchHeader from './components/SearchHeader';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Anime from './routes/Anime';
@@ -11,14 +11,16 @@ import AboutUs from './routes/AboutUs';
 
 function App() {
   const [input, setInput] = useState('')
+  // Hamburger Menu
+  const [open, setOpen] = useState(true)
   return (
     <div className='App font-quicksand max-w-screen-xl m-auto'>
       <Router>
-        <SearchHeader input={input} setInput={setInput} />
+        <SearchHeader input={input} setInput={setInput} setOpen={setOpen} open={open} />
         <Switch>
           <div className='mt-12 flex justify-between'>
 
-            <Navbar />
+            <Navbar open={open} />
             <Route exact path='/'>
               <Home />
             </Route>

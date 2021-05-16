@@ -2,7 +2,7 @@ import React from 'react'
 
 const AboutUs = () => {
     return (
-        <div className='w-4/5 text-center'>
+        <div className='lg:w-5/6 md:w-full text-center'>
             <h1 className='text-center mb-5 font-bold text-3xl'>Our Teams</h1>
             <div className='flex'>
                 {/* Pradana Aditya */}

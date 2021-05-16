@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header = ({ select, setSelect }) => {
     return (
-        <div className='flex justify-between'>
+        <div className='flex justify-between lg:mx-6 md:mx-6'>
             <p className='font-bold text-xl'>Top <span className='text-main capitalize'>{select}</span></p>
             <select className='w-80 outline-none font-medium cursor-pointer' onChange={e => setSelect(e.target.value)}>
                 <option value='manga'>Manga</option>

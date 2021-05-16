@@ -4,7 +4,7 @@ import UpcomingAnime from './components/UpcomingAnime'
 
 const Home = () => {
     return (
-        <div className='mt-6'>
+        <div className='mt-6 lg:w-5/6 md:w-full'>
             {/* Upcoming Anime */}
             <UpcomingAnime />
             {/* Anime Recommendations */}

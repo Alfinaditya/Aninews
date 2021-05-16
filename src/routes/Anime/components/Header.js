@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header = ({ select, setSelect }) => {
     return (
-        <div className='flex justify-between'>
+        <div className='flex justify-between lg:mx-6 md:mx-6'>
             {select === 'airing' || select === 'upcoming' ?
                 <p className='font-bold text-xl'>New <span className='text-main'>Releases</span></p> :
                 <p className='font-bold text-xl'>Top <span className='text-main'>Anime</span></p>}
