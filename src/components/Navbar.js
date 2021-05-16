@@ -27,6 +27,7 @@ const Navbar = ({ open, setOpen }) => {
                     {/* Hamburger Menu */}
                     <XIcon onClick={() => { setOpen(!open) }} className='text-white ml-auto mr-7 w-8 h-8 block text-whites mt-6 lg:hidden' />
                     <ul className='flex flex-col pt-16 lg:pt-0'>
+
                         <li className='text-lg py-5'>
                             <Link to='/' className='flex'>
                                 {location.pathname === '/' ?
@@ -41,6 +42,7 @@ const Navbar = ({ open, setOpen }) => {
                                 }
                             </Link>
                         </li>
+
                         <li className='text-lg py-5'>
                             <Link to='/anime' className='flex'>
                                 {location.pathname === '/anime' ?
