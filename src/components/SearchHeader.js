@@ -1,5 +1,5 @@
 import { pathToRegexp } from "path-to-regexp"
-import { useLocation, useParams } from "react-router"
+import { useLocation } from "react-router"
 import { MenuAlt1Icon } from '@heroicons/react/outline';
 
 const SearchHeader = ({ input, setInput, setOpen, open }) => {
