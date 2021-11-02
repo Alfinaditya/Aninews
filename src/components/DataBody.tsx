@@ -1,10 +1,14 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { StarIcon } from '@heroicons/react/outline';
-const DataBody = ({ shows }) => {
-    return (
-        <div className='mt-8 justify-center grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3'>
-            {shows && shows.map(show => {
+
+interface Props {
+	shows: any;
+}
+const DataBody: React.FC<Props> = ({ shows }) => {
+	return (
+		<div className='mt-8 justify-center grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3'>
+			{/* {shows && shows.map(show => {
                 const path = setPath(show)
                 return (
                     <Link to={path} className='w-48 mb-10 mx-3' key={show.mal_id}>
@@ -19,17 +23,16 @@ const DataBody = ({ shows }) => {
                         </div>
                     </Link>
                 )
-            })}
+            })} */}
+		</div>
+	);
+};
 
-        </div>
-    )
-}
+// function setPath(show) {
+// 	const animeType = ['TV', 'Movie', 'OVA', 'ONA', 'Special', 'Music'];
+// 	const mangaType = ['Manga', 'Novel', 'One', 'Doujinshi', 'Manhwa', 'Manhua'];
+// 	if (animeType.includes(show.type)) return `anime/${show.mal_id}`;
+// 	if (mangaType.includes(show.type)) return `manga/${show.mal_id}`;
+// }
 
-function setPath(show) {
-    const animeType = ['TV', 'Movie', 'OVA', 'ONA', 'Special', 'Music']
-    const mangaType = ['Manga', 'Novel', 'One', 'Doujinshi', 'Manhwa', 'Manhua']
-    if (animeType.includes(show.type)) return `anime/${show.mal_id}`
-    if (mangaType.includes(show.type)) return `manga/${show.mal_id}`
-}
-
-export default DataBody
+export default DataBody;

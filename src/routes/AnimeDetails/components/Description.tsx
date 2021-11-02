@@ -1,12 +1,13 @@
-import React from 'react'
-
-const Description = ({ anime }) => {
-    return (
-        <div className='lg:w-3/5 md:w-full'>
-
-            <h1 className='font-quicksand font-medium text-3xl'>{anime.title}</h1>
+import React from 'react';
+interface Props {
+	anime: any;
+}
+const Description: React.FC<Props> = ({ anime }) => {
+	return (
+		<div className='lg:w-3/5 md:w-full'>
+			{/* <h1 className='font-quicksand font-medium text-3xl'>{anime.title}</h1>
             {/* Anime Video */}
-            <iframe
+			{/* <iframe
                 width="100%"
                 height="50%"
                 src={anime.trailer_url}
@@ -15,13 +16,13 @@ const Description = ({ anime }) => {
                 allowFullScreen
                 title={anime.title}
                 className='m-auto my-8'
-            />
+            /> */}
 
-            {/*Anime Synopsis  */}
-            <p className='font-roboto font-light mt-3'>{anime.synopsis}</p>
+			{/*Anime Synopsis  */}
+			{/* <p className='font-roboto font-light mt-3'>{anime.synopsis}</p> */}
 
-            {/* Anime Category */}
-            <div className='my-9 flex justify-between'>
+			{/* Anime Category */}
+			{/* <div className='my-9 flex justify-between'>
                 <div>
                     <p><span className='font-bold text-main'>Japanese : </span>{anime.title_japanese}</p>
                     <p><span className='font-bold text-main'>Type : </span>{anime.type}</p>
@@ -35,16 +36,16 @@ const Description = ({ anime }) => {
                     <p><span className='font-bold text-main'>Duration : </span>{anime.duration}</p>
                 </div>
 
-            </div>
+            </div> */}
 
-            {/* Anime Genres */}
-            <div className='mt-4 flex flex-wrap pb-9'>
+			{/* Anime Genres */}
+			{/* <div className='mt-4 flex flex-wrap pb-9'>
                 {anime.genres && anime.genres.map(genre => (
                     <div key={genre.mal_id} className='bg-main p-1 px-4 mr-1 rounded-full text-white mb-2'>{genre.name}</div>
                 ))}
-            </div>
-        </div>
-    )
-}
+            </div>  */}
+		</div>
+	);
+};
 
-export default Description
+export default Description;

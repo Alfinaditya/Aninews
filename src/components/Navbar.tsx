@@ -7,7 +7,11 @@ import {
 	XIcon,
 } from '@heroicons/react/outline';
 
-const Navbar = ({ open, setOpen }) => {
+interface Props {
+	open: boolean;
+	setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const Navbar: React.FC<Props> = ({ open, setOpen }) => {
 	const location = useLocation();
 
 	// conditional rendering,if path location in anime/:id || /manga/:id,then return empty element
@@ -19,7 +23,7 @@ const Navbar = ({ open, setOpen }) => {
 		>
 			<nav>
 				{/* Hamburger Menu */}
-				<XIcon
+				{/* <XIcon
 					onClick={() => {
 						setOpen(!open);
 					}}
@@ -73,7 +77,7 @@ const Navbar = ({ open, setOpen }) => {
 							)}
 						</Link>
 					</li>
-				</ul>
+				</ul> */}
 			</nav>
 		</div>
 	);
