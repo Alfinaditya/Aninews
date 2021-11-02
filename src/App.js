@@ -7,44 +7,44 @@ import { useState } from 'react';
 import Manga from './routes/Manga';
 import AnimeDetails from './routes/AnimeDetails';
 import MangaDetails from './routes/MangaDetails';
-import AboutUs from './routes/AboutUs';
 
 function App() {
-  // Search Header
-  const [input, setInput] = useState('')
-  // Hamburger Menu
-  const [open, setOpen] = useState(false)
-  return (
-    <div className='App font-quicksand max-w-screen-xl m-auto'>
-      <Router>
-        <SearchHeader input={input} setInput={setInput} setOpen={setOpen} open={open} />
-        <div className='mt-12 flex justify-between'>
-          <Navbar open={open} setOpen={setOpen} />
-          <Switch>
-            <Route exact path='/'>
-              <Home />
-            </Route>
-            <Route exact path='/anime'>
-              <Anime input={input} />
-            </Route>
-            <Route exact path='/manga'>
-              <Manga input={input} />
-            </Route>
-            <Route path='/about-us'>
-              <AboutUs />
-            </Route>
-            <Route path='/anime/:id'>
-              <AnimeDetails />
-            </Route>
-            <Route path='/manga/:id'>
-              <MangaDetails />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    </div >
-
-  );
+	// Search Header
+	const [input, setInput] = useState('');
+	// Hamburger Menu
+	const [open, setOpen] = useState(false);
+	return (
+		<div className='App font-quicksand max-w-screen-xl m-auto'>
+			<Router>
+				<SearchHeader
+					input={input}
+					setInput={setInput}
+					setOpen={setOpen}
+					open={open}
+				/>
+				<div className='mt-12 flex justify-between'>
+					<Navbar open={open} setOpen={setOpen} />
+					<Switch>
+						<Route exact path='/'>
+							<Home />
+						</Route>
+						<Route exact path='/anime'>
+							<Anime input={input} />
+						</Route>
+						<Route exact path='/manga'>
+							<Manga input={input} />
+						</Route>
+						<Route path='/anime/:id'>
+							<AnimeDetails />
+						</Route>
+						<Route path='/manga/:id'>
+							<MangaDetails />
+						</Route>
+					</Switch>
+				</div>
+			</Router>
+		</div>
+	);
 }
 
 export default App;
