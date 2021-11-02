@@ -23,7 +23,7 @@ const Navbar: React.FC<Props> = ({ open, setOpen }) => {
 		>
 			<nav>
 				{/* Hamburger Menu */}
-				{/* <XIcon
+				<XIcon
 					onClick={() => {
 						setOpen(!open);
 					}}
@@ -77,7 +77,7 @@ const Navbar: React.FC<Props> = ({ open, setOpen }) => {
 							)}
 						</Link>
 					</li>
-				</ul> */}
+				</ul>
 			</nav>
 		</div>
 	);
