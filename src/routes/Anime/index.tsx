@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
 import Pagination from '../../components/Pagination';
-import DataBody from '../../components/DataBody';
 import DataSearchBody from '../../components/DataSearchBody';
 import { useQuery, useQueryClient } from 'react-query';
 import axios from 'axios';

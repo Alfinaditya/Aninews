@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import Pagination from '../../components/Pagination';
 import DataSearchBody from '../../components/DataSearchBody';
-import DataBody from '../../components/DataBody';
 import { useQuery } from 'react-query';
 import { MediaList } from '../../ts/media';
 import { mangaList } from '../../api/manga';

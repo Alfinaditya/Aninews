@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import SearchHeader from './components/SearchHeader';
+import Navbar from './parts/navbar';
+import Header from './Header';
 import Anime from './routes/anime';
 import AnimeDetails from './routes/anime[id]';
 import Home from './routes/home';
@@ -16,7 +16,7 @@ const Routes = () => {
 	return (
 		<div>
 			<Router>
-				<SearchHeader
+				<Header
 					input={input}
 					setInput={setInput}
 					setOpen={setOpen}
