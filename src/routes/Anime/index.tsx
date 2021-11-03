@@ -62,7 +62,8 @@ const Anime: React.FC<Props> = ({ input }) => {
 								<img
 									src={anime.image_url}
 									className='w-full h-full shadow-lg hover:shadow-xl '
-								></img>
+									alt={anime.title}
+								/>
 							</div>
 							<p className='mt-6 font-bold'>{anime.title}</p>
 							<p className='mt-2 font-normal'>

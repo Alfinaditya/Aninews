@@ -31,7 +31,8 @@ const AnimeRec = () => {
 							<div className='w-48 h-48'>
 								<img
 									src={anime.image_url}
-									className='w-full h-full shadow-lg hover:shadow-xl '
+									className='w-full h-full shadow-lg hover:shadow-xl'
+									alt={anime.title}
 								></img>
 							</div>
 							<p className='mt-6 font-bold'>{anime.title}</p>
