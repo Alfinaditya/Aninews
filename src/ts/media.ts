@@ -7,7 +7,7 @@ export interface MediaList {
 	type: string;
 	episodes: number;
 	start_date: string;
-	end_date: number | null;
+	end_date: string | null;
 	members: number;
 	score: number;
 }

@@ -41,3 +41,18 @@ export async function animeId(id: string) {
 		console.log(err);
 	}
 }
+
+export async function animeListQuery(input: string, status: string) {
+	let URL: string;
+	if (status === 'airing' || status === 'upcoming') {
+		URL = `https://api.jikan.moe/v3/search/anime?q=${input}&status=${status}g&order_by=title`;
+	} else {
+		URL = `https://api.jikan.moe/v3/search/anime?q=${input}&type=${status}&order_by=title`;
+	}
+	try {
+		const res = await axios.get(URL);
+		return res.data.results;
+	} catch (err) {
+		console.log(err);
+	}
+}
