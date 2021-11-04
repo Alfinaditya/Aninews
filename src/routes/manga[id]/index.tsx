@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router';
 import { mangaId } from '../../api/manga';
+import Loading from '../../components/Loading';
 import { Details } from '../../ts/manga';
 import Description from './components/Description';
 import ImagesAndScore from './components/ImageAndScore';
@@ -16,9 +17,9 @@ const MangaDetails = () => {
 		() => mangaId(id),
 		{ cacheTime: 0 }
 	);
-	if (isLoading) return <p>Loading....</p>;
+	if (isLoading) return <Loading />;
 	if (isError) return <p>Something Went Wrong....</p>;
-	if (data) console.log(data);
+
 	return (
 		<div className='max-w-6xl px-4'>
 			<div className='flex lg:justify-between flex-wrap justify-center'>

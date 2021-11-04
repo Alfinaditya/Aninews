@@ -7,7 +7,7 @@ import AnimeDetails from './routes/anime[id]';
 import Home from './routes/home';
 import Manga from './routes/manga';
 import MangaDetails from './routes/manga[id]';
-
+import ScrolltoTop from '../src/ScrolltoTop';
 const Routes = () => {
 	// Search Header
 	const [input, setInput] = useState('');
@@ -16,6 +16,7 @@ const Routes = () => {
 	return (
 		<div>
 			<Router>
+				<ScrolltoTop />
 				<Header
 					input={input}
 					setInput={setInput}

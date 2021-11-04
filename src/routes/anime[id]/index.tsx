@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { animeId } from '../../api/anime';
+import Loading from '../../components/Loading';
 import { Details } from '../../ts/anime';
 import Description from './components/Description';
 import DetailsAndScore from './components/DetailsAndScore';
@@ -15,7 +16,7 @@ const AnimeDetails = () => {
 		() => animeId(id),
 		{ cacheTime: 0 }
 	);
-	if (isLoading) return <p>Loading....</p>;
+	if (isLoading) return <Loading />;
 	if (isError) return <p>Something Went Wrong....</p>;
 	return (
 		<div className='max-w-6xl px-4'>

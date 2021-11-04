@@ -8,13 +8,15 @@ import { MediaList } from '../../ts/media';
 import { Link } from 'react-router-dom';
 import { StarIcon } from '@heroicons/react/outline';
 import { animeList } from '../../api/anime';
+import Loading from '../../components/Loading';
 
 interface Props {
 	input: string;
 }
 const Anime: React.FC<Props> = ({ input }) => {
 	const [page, setPage] = useState(0);
-	const [select, setSelect] = useState('airing');
+	const [selectedStatusValue, setSelectedStatusValue] = useState('airing');
+	const [selectedStatusText, setSelectedStatusText] = useState('Airing');
 
 	// async function animeList() {
 	// 	try {
@@ -28,27 +30,31 @@ const Anime: React.FC<Props> = ({ input }) => {
 	// }
 	// URL
 	let SEARCH_ANIME;
-	if (select === 'airing' || select === 'upcoming') {
-		SEARCH_ANIME = `https://api.jikan.moe/v3/search/anime?q=${input}&status=${select}g&order_by=title`;
+	if (selectedStatusValue === 'airing' || selectedStatusValue === 'upcoming') {
+		SEARCH_ANIME = `https://api.jikan.moe/v3/search/anime?q=${input}&status=${selectedStatusValue}g&order_by=title`;
 	} else {
-		SEARCH_ANIME = `https://api.jikan.moe/v3/search/anime?q=${input}&type=${select}&order_by=title`;
+		SEARCH_ANIME = `https://api.jikan.moe/v3/search/anime?q=${input}&type=${selectedStatusValue}&order_by=title`;
 	}
 
 	// Custom Hook
 	// const { data } = FetchData(ANIME_URL, page);
-	const { isLoading, isError, data, error } = useQuery<MediaList[], Error>(
-		'animeList',
-		() => animeList(page, select)
+	const { isLoading, isError, data } = useQuery<MediaList[], Error>(
+		['animeList', selectedStatusValue],
+		() => animeList(page, selectedStatusValue),
+		{ refetchIntervalInBackground: false, refetchOnWindowFocus: false }
 	);
-	if (isLoading) return <p>Loading....</p>;
+	if (isLoading) return <Loading />;
 	if (isError) return <p>Something Went Wrong....</p>;
-	if (data) console.log(data);
 	// const { searchData } = FetchSearchData(SEARCH_ANIME, input);
 	// // list Anime Body
-
 	return (
 		<div className='lg:w-5/6 sm:w-full'>
-			<Header select={select} setSelect={setSelect} />
+			<Header
+				selectedStatusValue={selectedStatusValue}
+				setSelectedStatusValue={setSelectedStatusValue}
+				selectedStatusText={selectedStatusText}
+				setSelectedStatusText={setSelectedStatusText}
+			/>
 			<div className='mt-8 justify-center grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3'>
 				{data &&
 					data.map((anime: MediaList) => (
@@ -64,7 +70,14 @@ const Anime: React.FC<Props> = ({ input }) => {
 									alt={anime.title}
 								/>
 							</div>
-							<p className='mt-6 font-bold'>{anime.title}</p>
+							{/* 23 === words length on the first line */}
+							{anime.title.length > 23 ? (
+								<p className='mt-6 font-bold w-48 h-12 overflow-hidden overflow-ellipsis '>
+									{anime.title}
+								</p>
+							) : (
+								<p className='mt-6 font-bold'>{anime.title}</p>
+							)}
 							<p className='mt-2 font-normal'>
 								{anime.start_date} -{' '}
 								{anime.end_date === null ? 'Airing' : anime.end_date}

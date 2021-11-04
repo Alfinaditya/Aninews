@@ -7,19 +7,22 @@ import { MediaList } from '../../ts/media';
 import { mangaList } from '../../api/manga';
 import { Link } from 'react-router-dom';
 import { StarIcon } from '@heroicons/react/outline';
+import Loading from '../../components/Loading';
 interface Props {
 	input: string;
 }
 const Manga: React.FC<Props> = ({ input }) => {
 	const [page, setPage] = useState(0);
-	const [select, setSelect] = useState('manga');
-
+	const [selectedStatusValue, setSelectedStatusValue] = useState('manga');
+	const [selectedStatusText, setSelectedStatusText] = useState('Manga');
+	console.log('re render');
 	const { isLoading, isError, data, error } = useQuery<MediaList[], Error>(
-		'mangaList',
-		() => mangaList(page, select)
+		['mangaList', selectedStatusValue],
+		() => mangaList(page, selectedStatusValue),
+		{ refetchIntervalInBackground: false, refetchOnWindowFocus: false }
 		// { enabled: false }
 	);
-	if (isLoading) return <p>Loading....</p>;
+	if (isLoading) return <Loading />;
 	if (isError) return <p>Something Went Wrong....</p>;
 	// CUSTOM URL
 	// const MANGA_URL = `https://api.jikan.moe/v3/top/manga/${page + 1}/${select}`;
@@ -36,7 +39,11 @@ const Manga: React.FC<Props> = ({ input }) => {
 
 	return (
 		<div className='lg:w-5/6 md:w-full'>
-			<Header select={select} setSelect={setSelect} />
+			<Header
+				setSelectedStatusValue={setSelectedStatusValue}
+				selectedStatusText={selectedStatusText}
+				setSelectedStatusText={setSelectedStatusText}
+			/>
 			{/* <DataSearchBody shows={searchData} />
 			<DataBody shows={listManga} />
 			{listManga && listManga.length >= 50 && (
@@ -57,7 +64,14 @@ const Manga: React.FC<Props> = ({ input }) => {
 									alt={manga.title}
 								></img>
 							</div>
-							<p className='mt-6 font-bold'>{manga.title}</p>
+							{/* 23 === words length on the first line */}
+							{manga.title.length > 23 ? (
+								<p className='mt-6 font-bold w-48 h-12 overflow-hidden overflow-ellipsis '>
+									{manga.title}
+								</p>
+							) : (
+								<p className='mt-6 font-bold'>{manga.title}</p>
+							)}
 							<p className='mt-2 font-normal'>
 								{manga.start_date} -{' '}
 								{manga.end_date === null ? 'Airing' : manga.end_date}

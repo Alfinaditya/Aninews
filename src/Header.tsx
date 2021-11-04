@@ -24,7 +24,7 @@ const Header: React.FC<Props> = ({ input, setInput, setOpen, open }) => {
 					<div className='sm:w-1/2 w-4/5 m-auto sm:m-px'>
 						<input
 							type='search'
-							className='p-1 sm:w-96 w-full border-2 border-transparant rounded-lg mr-2 outline-none'
+							className='p-1 pl-3 sm:w-96 w-full border-1 border-transparant rounded-lg mr-2 font-medium outline-none'
 							placeholder='Search something...'
 							value={input}
 							onChange={e => setInput(e.target.value)}
