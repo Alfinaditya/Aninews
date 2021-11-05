@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
-import Pagination from '../../components/Pagination';
 import { useQuery } from 'react-query';
 import { MediaList } from '../../ts/media';
 import { animeList, animeListQuery } from '../../api/anime';
@@ -17,12 +16,18 @@ const Anime: React.FC<Props> = ({ input }) => {
 	const [selectedStatusText, setSelectedStatusText] = useState('Airing');
 	const {
 		isLoading,
+		isFetching,
 		isError,
+		isPreviousData,
 		data: dataAnimeList,
 	} = useQuery<MediaList[], Error>(
-		['animeList', selectedStatusValue],
+		['animeList', selectedStatusValue, page],
 		() => animeList(page, selectedStatusValue),
-		{ refetchIntervalInBackground: false, refetchOnWindowFocus: false }
+		{
+			refetchIntervalInBackground: false,
+			refetchOnWindowFocus: false,
+			keepPreviousData: true,
+		}
 	);
 	const { isLoading: isLoadingQuery, data: dataAnimeListQuery } = useQuery<
 		MediaList[],
@@ -35,9 +40,10 @@ const Anime: React.FC<Props> = ({ input }) => {
 		}
 	);
 	if (isLoading) return <Loading />;
+	if (isFetching) return <Loading />;
 	if (isError) return <p>Something Went Wrong....</p>;
 	if (isLoadingQuery) return <Loading />;
-	// // list Anime Body
+
 	return (
 		<div className='lg:w-5/6 sm:w-full'>
 			<Header
@@ -50,15 +56,21 @@ const Anime: React.FC<Props> = ({ input }) => {
 			{dataAnimeListQuery ? (
 				<QueryContent animeListQuery={dataAnimeListQuery} />
 			) : (
-				<Content animeList={dataAnimeList!} />
+				<Content
+					isPreviousData={isPreviousData}
+					page={page}
+					setPage={setPage}
+					animeList={dataAnimeList!}
+				/>
 			)}
+			{/* {dataAnimeListQuery && dataAnimeListQuery.length >=50 &&( <Pagination data={} page={page} setPage={setPage} />
+			)} */}
 
 			{/* if array search data less than one or null */}
 			{/* {searchData && searchData.length < 1 && (
 				<>
 					<DataBody shows={listAnime} />
 					{listAnime && listAnime.length >= 50 && (
-						<Pagination data={listAnime} page={page} setPage={setPage} />
 					)}
 				</>
 			)} */}

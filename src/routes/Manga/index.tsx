@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
-import Pagination from '../../components/Pagination';
 import { useQuery } from 'react-query';
 import { MediaList } from '../../ts/media';
 import { mangaList, mangaListQuery } from '../../api/manga';
@@ -17,10 +16,12 @@ const Manga: React.FC<Props> = ({ input }) => {
 	const [selectedStatusText, setSelectedStatusText] = useState('Manga');
 	const {
 		isLoading,
+		isFetching,
 		isError,
+		isPreviousData,
 		data: dataMangaList,
 	} = useQuery<MediaList[], Error>(
-		['mangaList', selectedStatusValue],
+		['mangaList', selectedStatusValue, page],
 		() => mangaList(page, selectedStatusValue),
 		{ refetchIntervalInBackground: false, refetchOnWindowFocus: false }
 	);
@@ -35,6 +36,7 @@ const Manga: React.FC<Props> = ({ input }) => {
 		}
 	);
 	if (isLoading) return <Loading />;
+	if (isFetching) return <Loading />;
 	if (isLoadingQuery) return <Loading />;
 	if (isError) return <p>Something Went Wrong....</p>;
 
@@ -49,7 +51,12 @@ const Manga: React.FC<Props> = ({ input }) => {
 			{dataMangaListQuery ? (
 				<QueryContent mangaListQuery={dataMangaListQuery!} />
 			) : (
-				<Content mangaList={dataMangaList!} />
+				<Content
+					isPreviousData={isPreviousData}
+					page={page}
+					setPage={setPage}
+					mangaList={dataMangaList!}
+				/>
 			)}
 			{/* <DataSearchBody shows={searchData} />
 			<DataBody shows={listManga} />

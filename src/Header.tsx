@@ -1,6 +1,6 @@
-import { useRouteMatch } from 'react-router-dom';
-import { MenuAlt1Icon } from '@heroicons/react/outline';
-import React, { useState } from 'react';
+import { useRouteMatch, useLocation } from 'react-router-dom';
+import { MenuAlt1Icon, SearchIcon } from '@heroicons/react/outline';
+import React, { useEffect, useState } from 'react';
 
 interface Props {
 	input: string;
@@ -10,16 +10,17 @@ interface Props {
 }
 const Header: React.FC<Props> = ({ input, setInput, setOpen, open }) => {
 	const [submit, setSubmit] = useState('');
+	const { pathname } = useLocation();
 	const homeMatch = useRouteMatch('/');
 	const animeIdMatch = useRouteMatch('/anime/:id');
 	const mangaIdMatch = useRouteMatch('/manga/:id');
+	useEffect(() => {
+		// clear header when the path change
+		setSubmit('');
+		setInput('');
+	}, [pathname]);
 	if (animeIdMatch) return <></>;
 	if (mangaIdMatch) return <></>;
-	function handleQuery() {
-		// do query here
-		// and get the cache on the child component
-		// do this on experiment branch
-	}
 	return (
 		<div className='mt-7 lg:w-2/3 lg:ml-3 w-full'>
 			<div className='flex flex-row-reverse lg:justify-between sm:items-center sm:justify-center lg:flex-row'>
@@ -30,6 +31,7 @@ const Header: React.FC<Props> = ({ input, setInput, setOpen, open }) => {
 				{!homeMatch?.isExact && (
 					<div className='sm:w-1/2 w-4/5 m-auto sm:m-px'>
 						<form
+							className='flex'
 							onSubmit={e => {
 								e.preventDefault();
 								setInput(submit);
@@ -37,12 +39,17 @@ const Header: React.FC<Props> = ({ input, setInput, setOpen, open }) => {
 						>
 							<input
 								type='search'
-								className='p-1 pl-3 sm:w-96 w-full border-1 border-transparant rounded-lg mr-2 font-medium outline-none'
+								className='p-1 pl-3 sm:w-96 w-full border-1 border-transparant mr-1 rounded-lg font-medium outline-none'
 								placeholder='Search something...'
 								value={submit}
 								onChange={e => setSubmit(e.target.value)}
 							/>
-							<button type='submit'>Query</button>
+							<button
+								type='submit'
+								className='w-14 h-10 hover:bg-pink-600 rounded-md bg-main flex items-center justify-center'
+							>
+								<SearchIcon className='h-5 w-5 text-white' />
+							</button>
 						</form>
 					</div>
 				)}
