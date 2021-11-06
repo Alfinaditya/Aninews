@@ -2,16 +2,24 @@ import { StarIcon } from '@heroicons/react/outline';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { convertIsoDateToDateFormat } from '../../../helpers/convertIsoDateToDateFormat';
-import { MediaList } from '../../../ts/media';
+import { MediaQuery } from '../../../ts/media';
 interface Props {
-	mangaListQuery: MediaList[];
+	mangaListQuery: MediaQuery;
+	isPreviousDataQuery: boolean;
+	pagQuery: number;
+	setPageQuery: React.Dispatch<React.SetStateAction<number>>;
 }
-const QueryContent: React.FC<Props> = ({ mangaListQuery }) => {
+const QueryContent: React.FC<Props> = ({
+	mangaListQuery,
+	isPreviousDataQuery,
+	pagQuery,
+	setPageQuery,
+}) => {
 	return (
-		<div>
+		<>
 			<div className='mt-8 justify-center grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3'>
 				{mangaListQuery &&
-					mangaListQuery.map((manga: MediaList) => {
+					mangaListQuery.results.map(manga => {
 						const {
 							start_date_month,
 							end_date_month,
@@ -53,7 +61,38 @@ const QueryContent: React.FC<Props> = ({ mangaListQuery }) => {
 						);
 					})}
 			</div>
-		</div>
+
+			{mangaListQuery && mangaListQuery.results.length >= 50 && (
+				<>
+					{pagQuery > 0 && (
+						<button
+							onClick={() => {
+								setPageQuery(old => Math.max(old - 1, 0));
+								window.scrollTo({ top: 0, behavior: 'smooth' });
+							}}
+							disabled={pagQuery === 0}
+						>
+							Previous Page
+						</button>
+					)}
+					<div>{pagQuery + 1}</div>
+					{mangaListQuery.last_page !== pagQuery + 1 && (
+						<button
+							onClick={() => {
+								if (!isPreviousDataQuery) {
+									setPageQuery(old => old + 1);
+									window.scrollTo({ top: 0, behavior: 'smooth' });
+								}
+							}}
+							// Disable the Next Page button until we know a next page is available
+							disabled={isPreviousDataQuery}
+						>
+							Next Page
+						</button>
+					)}
+				</>
+			)}
+		</>
 	);
 };
 

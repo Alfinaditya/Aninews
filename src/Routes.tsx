@@ -8,6 +8,7 @@ import Home from './routes/home';
 import Manga from './routes/manga';
 import MangaDetails from './routes/manga[id]';
 import ScrolltoTop from '../src/ScrolltoTop';
+import NotFound from './routes/404';
 const Routes = () => {
 	// Search Header
 	const [input, setInput] = useState('');
@@ -40,6 +41,9 @@ const Routes = () => {
 						</Route>
 						<Route path='/manga/:id'>
 							<MangaDetails />
+						</Route>
+						<Route path='*'>
+							<NotFound />
 						</Route>
 					</Switch>
 				</div>

@@ -1,11 +1,11 @@
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import { animeListRecommendations } from '../../../api/anime';
-import { Recommendations } from '../../../ts/media';
+import { MediaRecommendations } from '../../../ts/media';
 import RecLoading from './RecLoading';
 
 const AnimeRec = () => {
-	const { isLoading, isError, data } = useQuery<Recommendations[], Error>(
+	const { isLoading, isError, data } = useQuery<MediaRecommendations, Error>(
 		'animeListRecommendations',
 		animeListRecommendations,
 		{ refetchIntervalInBackground: false, refetchOnWindowFocus: false }
@@ -16,14 +16,13 @@ const AnimeRec = () => {
 			<p className='font-bold text-xl sm:text-left  text-center'>
 				Anime <span className='text-main'>recommendations</span>
 			</p>
-
 			{isLoading ? (
 				<RecLoading />
 			) : (
 				<>
 					<div className='grid justify-center xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 mt-8'>
 						{data &&
-							data.map(anime => (
+							data.recommendations.slice(0, 10).map(anime => (
 								<Link
 									to={`anime/${anime.mal_id}`}
 									key={anime.mal_id}

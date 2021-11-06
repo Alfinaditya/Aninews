@@ -3,7 +3,7 @@ const RecLoading = () => {
 	{
 		for (let index = 0; index < 10; index++) {
 			elements.push(
-				<div className='w-48 mb-10 mx-3 cursor-pointer'>
+				<div key={index} className='w-48 mb-10 mx-3 cursor-pointer'>
 					{/* image */}
 					<div className='w-48 h-48 bg-gray-200 rounded-tr rounded-tl animate-pulse' />
 

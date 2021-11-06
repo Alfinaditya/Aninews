@@ -5,7 +5,7 @@ export async function mangaList(page: number, select: string) {
 		const res = await axios.get(
 			`https://api.jikan.moe/v3/top/manga/${page + 1}/${select}`
 		);
-		return res.data.top;
+		return res.data;
 	} catch (err) {
 		console.log(err);
 	}
@@ -16,7 +16,7 @@ export async function mangaListRecommendations() {
 		const res = await axios.get(
 			'https://api.jikan.moe/v3/manga/1/recommendations'
 		);
-		return res.data.recommendations.slice(0, 10);
+		return res.data;
 	} catch (err) {
 		console.log(err);
 	}
@@ -42,7 +42,7 @@ export async function mangaListQuery(
 				page + 1
 			}`
 		);
-		return res.data.results;
+		return res.data;
 	} catch (err) {
 		console.log(err);
 	}

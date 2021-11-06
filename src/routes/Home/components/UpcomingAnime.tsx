@@ -4,7 +4,7 @@ import { MediaList } from '../../../ts/media';
 import { animeListUpcoming } from '../../../api/anime';
 import UpcomingLoading from './UpcomingLoading';
 const UpcomingAnime = () => {
-	const { isLoading, isError, data } = useQuery<MediaList[], Error>(
+	const { isLoading, isError, data } = useQuery<MediaList, Error>(
 		'animeListUpcoming',
 		animeListUpcoming,
 		{ refetchIntervalInBackground: false, refetchOnWindowFocus: false }
@@ -21,7 +21,7 @@ const UpcomingAnime = () => {
 				<>
 					<div className='grid justify-center xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 mt-8'>
 						{data &&
-							data.map(anime => (
+							data.top.slice(0, 10).map(anime => (
 								<Link
 									to={`anime/${anime.mal_id}`}
 									key={anime.mal_id}

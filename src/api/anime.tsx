@@ -5,7 +5,7 @@ export async function animeList(page: number, select: string) {
 		const res = await axios.get(
 			`https://api.jikan.moe/v3/top/anime/${page + 1}/${select}`
 		);
-		return res.data.top;
+		return res.data;
 	} catch (err) {
 		console.log(err);
 	}
@@ -16,7 +16,7 @@ export async function animeListRecommendations() {
 		const res = await axios.get(
 			'https://api.jikan.moe/v3/anime/1/recommendations'
 		);
-		return res.data.recommendations.slice(0, 10);
+		return res.data;
 	} catch (err) {
 		console.log(err);
 	}
@@ -27,7 +27,7 @@ export async function animeListUpcoming() {
 		const res = await axios.get(
 			'https://api.jikan.moe/v3/top/anime/1/upcoming'
 		);
-		return res.data.top.slice(0, 10);
+		return res.data;
 	} catch (err) {
 		console.log(err);
 	}
@@ -42,16 +42,24 @@ export async function animeId(id: string) {
 	}
 }
 
-export async function animeListQuery(input: string, status: string) {
+export async function animeListQuery(
+	input: string,
+	status: string,
+	page: number
+) {
 	let URL: string;
 	if (status === 'airing' || status === 'upcoming') {
-		URL = `https://api.jikan.moe/v3/search/anime?q=${input}&status=${status}g&order_by=title`;
+		URL = `https://api.jikan.moe/v3/search/anime?q=${input}&status=${status}g&order_by=title&page=${
+			page + 1
+		}`;
 	} else {
-		URL = `https://api.jikan.moe/v3/search/anime?q=${input}&type=${status}&order_by=title`;
+		URL = `https://api.jikan.moe/v3/search/anime?q=${input}&type=${status}&order_by=title&page=${
+			page + 1
+		}`;
 	}
 	try {
 		const res = await axios.get(URL);
-		return res.data.results;
+		return res.data;
 	} catch (err) {
 		console.log(err);
 	}

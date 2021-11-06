@@ -1,8 +1,8 @@
-import { MediaList } from '../ts/media';
+import { Result } from '../ts/media';
 import { convertMonthToString } from './convertMonthToIsoString';
 
-export function convertIsoDateToDateFormat(media: MediaList) {
-	const start_date = new Date(media.start_date);
+export function convertIsoDateToDateFormat(media: Result) {
+	const start_date = new Date(media.start_date!);
 	const end_date = new Date(media.end_date as string);
 	const start_date_year = start_date.getFullYear();
 	const end_date_year = end_date.getFullYear();

@@ -6,12 +6,14 @@ import { animeList, animeListQuery } from '../../api/anime';
 import Loading from '../../components/Loading';
 import QueryContent from './components/QueryContent';
 import Content from './components/Content';
+import { MediaQuery } from '../../ts/media';
 
 interface Props {
 	input: string;
 }
 const Anime: React.FC<Props> = ({ input }) => {
 	const [page, setPage] = useState(0);
+	const [pageQuery, setPageQuery] = useState(0);
 	const [selectedStatusValue, setSelectedStatusValue] = useState('airing');
 	const [selectedStatusText, setSelectedStatusText] = useState('Airing');
 	const {
@@ -20,7 +22,7 @@ const Anime: React.FC<Props> = ({ input }) => {
 		isError,
 		isPreviousData,
 		data: dataAnimeList,
-	} = useQuery<MediaList[], Error>(
+	} = useQuery<MediaList, Error>(
 		['animeList', selectedStatusValue, page],
 		() => animeList(page, selectedStatusValue),
 		{
@@ -29,21 +31,26 @@ const Anime: React.FC<Props> = ({ input }) => {
 			keepPreviousData: true,
 		}
 	);
-	const { isLoading: isLoadingQuery, data: dataAnimeListQuery } = useQuery<
-		MediaList[],
-		Error
-	>(
-		['animeListQuery', input],
-		() => animeListQuery(input, selectedStatusValue),
+
+	const {
+		isLoading: isLoadingQuery,
+		isFetching: isFetchingQuery,
+		isPreviousData: isPreviousDataQuery,
+		data: dataAnimeListQuery,
+	} = useQuery<MediaQuery, Error>(
+		['animeListQuery', input, pageQuery],
+		() => animeListQuery(input, selectedStatusValue, pageQuery),
 		{
 			enabled: !!input,
+			refetchIntervalInBackground: false,
+			refetchOnWindowFocus: false,
 		}
 	);
 	if (isLoading) return <Loading />;
 	if (isFetching) return <Loading />;
+	if (isFetchingQuery) return <Loading />;
 	if (isError) return <p>Something Went Wrong....</p>;
 	if (isLoadingQuery) return <Loading />;
-
 	return (
 		<div className='lg:w-5/6 sm:w-full'>
 			<Header
@@ -54,7 +61,12 @@ const Anime: React.FC<Props> = ({ input }) => {
 			/>
 
 			{dataAnimeListQuery ? (
-				<QueryContent animeListQuery={dataAnimeListQuery} />
+				<QueryContent
+					isPreviousDataQuery={isPreviousDataQuery}
+					pagQuery={pageQuery}
+					setPageQuery={setPageQuery}
+					animeListQuery={dataAnimeListQuery}
+				/>
 			) : (
 				<Content
 					isPreviousData={isPreviousData}
@@ -63,17 +75,6 @@ const Anime: React.FC<Props> = ({ input }) => {
 					animeList={dataAnimeList!}
 				/>
 			)}
-			{/* {dataAnimeListQuery && dataAnimeListQuery.length >=50 &&( <Pagination data={} page={page} setPage={setPage} />
-			)} */}
-
-			{/* if array search data less than one or null */}
-			{/* {searchData && searchData.length < 1 && (
-				<>
-					<DataBody shows={listAnime} />
-					{listAnime && listAnime.length >= 50 && (
-					)}
-				</>
-			)} */}
 		</div>
 	);
 };
