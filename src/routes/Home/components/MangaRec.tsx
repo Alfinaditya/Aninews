@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
-import { mangaListRecommendations } from '../../../api/manga';
+import { mangaListRecommendations } from '../../../api/manga/mangaListRecommendations';
 import { MediaRecommendations } from '../../../ts/media';
 import RecLoading from './RecLoading';
 

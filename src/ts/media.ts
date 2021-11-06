@@ -2,7 +2,7 @@ export interface MediaList {
 	top: Top[];
 }
 
-export interface Top {
+interface Top {
 	mal_id: number;
 	rank: number;
 	title: string;
@@ -40,11 +40,22 @@ export interface MediaRecommendations {
 	recommendations: Recommendation[];
 }
 
-export interface Recommendation {
+interface Recommendation {
 	mal_id: number;
 	url: string;
 	image_url: string;
 	recommendation_url: string;
 	title: string;
 	recommendation_count: number;
+}
+interface MediaCharacters {
+	characters: Character[];
+}
+
+interface Character {
+	mal_id: number;
+	url: string;
+	image_url: string;
+	name: string;
+	role: string;
 }

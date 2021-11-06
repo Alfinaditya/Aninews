@@ -73,7 +73,6 @@ const Description: React.FC<Props> = ({ manga }) => {
 					))}
 				</div>
 			</div>
-
 			{/* Manga Genres */}
 			<div className='mt-4 flex flex-wrap pb-9'>
 				{manga?.genres.map(genre => (

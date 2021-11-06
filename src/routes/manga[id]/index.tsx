@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router';
-import { mangaId } from '../../api/manga';
+import { mangaId } from '../../api/manga/mangaId';
 import Loading from '../../components/Loading';
 import { Details } from '../../ts/manga';
 import Description from './components/Description';
@@ -15,7 +15,11 @@ const MangaDetails = () => {
 	const { isLoading, isError, data } = useQuery<Details, Error>(
 		'mangaId',
 		() => mangaId(id),
-		{ cacheTime: 0 }
+		{
+			cacheTime: 0,
+			refetchIntervalInBackground: false,
+			refetchOnWindowFocus: false,
+		}
 	);
 	if (isLoading) return <Loading />;
 	if (isError) return <p>Something Went Wrong....</p>;

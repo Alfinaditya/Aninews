@@ -1,8 +1,9 @@
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
+import { animeListUpcoming } from '../../../api/anime/animeListUpcoming';
 import { MediaList } from '../../../ts/media';
-import { animeListUpcoming } from '../../../api/anime';
 import UpcomingLoading from './UpcomingLoading';
+
 const UpcomingAnime = () => {
 	const { isLoading, isError, data } = useQuery<MediaList, Error>(
 		'animeListUpcoming',

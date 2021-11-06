@@ -1,7 +1,7 @@
 import { StarIcon } from '@heroicons/react/outline';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MediaList, Top } from '../../../ts/media';
+import { MediaList } from '../../../ts/media';
 interface Props {
 	mangaList: MediaList;
 	isPreviousData: boolean;
@@ -18,7 +18,7 @@ const Content: React.FC<Props> = ({
 		<>
 			<div className='mt-8 justify-center grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3'>
 				{mangaList &&
-					mangaList.top.map((manga: Top) => (
+					mangaList.top.map(manga => (
 						<Link
 							to={`manga/${manga.mal_id}`}
 							className='w-48 mb-10 mx-3'

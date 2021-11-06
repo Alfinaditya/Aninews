@@ -6,6 +6,8 @@ interface Props {
 	manga: Details | undefined;
 }
 const ImagesAndScore: React.FC<Props> = ({ manga }) => {
+	// Todo Refactor details
+	// Todo Style pagination
 	const history = useHistory();
 	return (
 		<div className='mb-13'>
@@ -16,7 +18,7 @@ const ImagesAndScore: React.FC<Props> = ({ manga }) => {
 					className='w-full h-full'
 				/>
 			</div>
-			<div className='w-72 rounded-xl '>
+			<div className='rounded-xl'>
 				<div className='bg-main text-white text-lg font-medium p-1 rounded-xl text-center mt-3'>
 					Score
 				</div>
@@ -24,7 +26,7 @@ const ImagesAndScore: React.FC<Props> = ({ manga }) => {
 			</div>
 			<p
 				onClick={() => {
-					history.go(-1);
+					history.goBack();
 				}}
 				className='decoration cursor-pointer'
 			>

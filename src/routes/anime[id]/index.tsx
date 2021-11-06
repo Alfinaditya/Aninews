@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
-import { animeId } from '../../api/anime';
+import { animeId } from '../../api/anime/animeId';
 import Loading from '../../components/Loading';
 import { Details } from '../../ts/anime';
 import Description from './components/Description';
@@ -8,13 +8,14 @@ import DetailsAndScore from './components/DetailsAndScore';
 
 const AnimeDetails = () => {
 	const { id } = useParams() as any;
-	// const ANIME_URL = `https://api.jikan.moe/v3/anime/${id}`
-	// const { data, loading } = FetchData(ANIME_URL)
-	// const anime = data
 	const { isLoading, isError, data } = useQuery<Details, Error>(
 		'animeId',
 		() => animeId(id),
-		{ cacheTime: 0 }
+		{
+			cacheTime: 0,
+			refetchIntervalInBackground: false,
+			refetchOnWindowFocus: false,
+		}
 	);
 	if (isLoading) return <Loading />;
 	if (isError) return <p>Something Went Wrong....</p>;

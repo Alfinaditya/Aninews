@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import { useQuery } from 'react-query';
 import { MediaList } from '../../ts/media';
-import { animeList, animeListQuery } from '../../api/anime';
 import Loading from '../../components/Loading';
 import QueryContent from './components/QueryContent';
 import Content from './components/Content';
 import { MediaQuery } from '../../ts/media';
+import { animeList } from '../../api/anime/animeList';
+import { animeListQuery } from '../../api/anime/animeListQuery';
 
 interface Props {
 	input: string;

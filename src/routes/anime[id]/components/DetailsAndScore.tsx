@@ -15,7 +15,7 @@ const DetailsAndScore: React.FC<Props> = ({ anime }) => {
 					alt={anime?.title}
 				/>
 			</div>
-			<div className='w-72 rounded-xl'>
+			<div className='rounded-xl'>
 				<div className='bg-main text-white text-lg font-medium p-1 rounded-xl text-center mt-3'>
 					Score
 				</div>
@@ -23,7 +23,7 @@ const DetailsAndScore: React.FC<Props> = ({ anime }) => {
 			</div>
 			<p
 				onClick={() => {
-					history.go(-1);
+					history.goBack();
 				}}
 				className='decoration cursor-pointer'
 			>

@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
-import { animeListRecommendations } from '../../../api/anime';
+import { animeListRecommendations } from '../../../api/anime/animeListRecommendations';
 import { MediaRecommendations } from '../../../ts/media';
 import RecLoading from './RecLoading';
 

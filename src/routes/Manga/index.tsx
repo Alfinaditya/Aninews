@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import { useQuery } from 'react-query';
 import { MediaList, MediaQuery } from '../../ts/media';
-import { mangaList, mangaListQuery } from '../../api/manga';
 import Loading from '../../components/Loading';
 import Content from './components/Content';
 import QueryContent from './components/QueryContent';
+import { mangaList } from '../../api/manga/mangaList';
+import { mangaListQuery } from '../../api/manga/mangaListQuery';
 
 interface Props {
 	input: string;
