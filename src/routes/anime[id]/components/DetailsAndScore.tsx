@@ -21,14 +21,6 @@ const DetailsAndScore: React.FC<Props> = ({ anime }) => {
 				</div>
 				<p className='text-center font-bold text-4xl mt-3'>{anime!.score}</p>
 			</div>
-			<p
-				onClick={() => {
-					history.goBack();
-				}}
-				className='decoration cursor-pointer'
-			>
-				Back
-			</p>
 		</div>
 	);
 };

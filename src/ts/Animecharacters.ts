@@ -1,4 +1,4 @@
-export interface AnimeCharacter {
+export interface AnimeCharacters {
 	characters: Character[];
 	staff: Staff[];
 }

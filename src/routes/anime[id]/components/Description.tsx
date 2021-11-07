@@ -49,11 +49,11 @@ const Description: React.FC<Props> = ({ anime }) => {
 		},
 	];
 	return (
-		<div className='lg:w-3/5 md:w-full'>
+		<div className='lg:w-3/5 md:w-full '>
 			<h1 className='font-quicksand font-medium text-3xl'>{anime!.title}</h1>
 			<iframe
 				width='100%'
-				height='50%'
+				height='400px'
 				src={anime?.trailer_url}
 				frameBorder='0'
 				allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
@@ -65,7 +65,7 @@ const Description: React.FC<Props> = ({ anime }) => {
 			<p className='font-roboto font-light mt-3'>{anime!.synopsis}</p>
 
 			{/* Anime Information*/}
-			<div className='my-9 flex justify-between'>
+			<div className='my-9 flex justify-between '>
 				<div>
 					{informationLeft.map(information => (
 						<p key={information.id}>
@@ -89,7 +89,7 @@ const Description: React.FC<Props> = ({ anime }) => {
 			</div>
 
 			{/* Anime Genres */}
-			<div className='mt-4 flex flex-wrap pb-9'>
+			<div className='mt-4 flex flex-wrap pb-9 '>
 				{anime!.genres &&
 					anime!.genres.map(genre => (
 						<div
