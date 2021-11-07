@@ -13,9 +13,9 @@ const UpcomingAnime = () => {
 	if (isError) return <p>Something Went Wrong....</p>;
 	return (
 		<div>
-			<p className='font-bold text-xl md:ml-4 sm:text-left  text-center'>
+			<h1 className='font-bold text-xl md:ml-4 sm:text-left  text-center'>
 				<span className='text-main'>Upcoming</span> anime
-			</p>
+			</h1>
 			{isLoading ? (
 				<UpcomingLoading />
 			) : (
@@ -35,7 +35,19 @@ const UpcomingAnime = () => {
 											alt={anime.title}
 										></img>
 									</div>
-									<p className='mt-6 font-bold'>{anime.title}</p>
+									{/* 23 === words length on the first line */}
+									{anime.title.length > 24 ? (
+										<p className='mt-6 font-bold w-48 h-12 overflow-hidden overflow-ellipsis '>
+											{anime.title}
+										</p>
+									) : (
+										<p className='mt-6 font-bold'>{anime.title}</p>
+									)}
+									{/* <p className=' w-48 mt-6 font-bold'>{anime.title}</p> */}
+									<div>
+										<span>{anime.start_date}</span> {' - '}
+										<span>{anime.end_date}</span>
+									</div>
 								</Link>
 							))}
 					</div>

@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export async function animeListUpcoming() {
+export async function mangaIdRecommendations(id: string) {
 	try {
 		const res = await axios.get(
-			`https://api.jikan.moe/v3/top/anime/1/upcoming`
+			`https://api.jikan.moe/v3/manga/${id}/recommendations`
 		);
 		return res.data;
 	} catch (err) {

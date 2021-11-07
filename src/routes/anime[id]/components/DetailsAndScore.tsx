@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import { Details } from '../../../ts/anime';
 interface Props {
-	anime: Details | undefined;
+	anime: Details;
 }
 const DetailsAndScore: React.FC<Props> = ({ anime }) => {
 	const history = useHistory();

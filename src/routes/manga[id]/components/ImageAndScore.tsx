@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import { Details } from '../../../ts/manga';
 
 interface Props {
-	manga: Details | undefined;
+	manga: Details;
 }
 const ImagesAndScore: React.FC<Props> = ({ manga }) => {
 	// Todo Refactor details
@@ -24,14 +24,6 @@ const ImagesAndScore: React.FC<Props> = ({ manga }) => {
 				</div>
 				<p className='text-center font-bold text-4xl mt-3'>{manga!.score}</p>
 			</div>
-			<p
-				onClick={() => {
-					history.goBack();
-				}}
-				className='decoration cursor-pointer'
-			>
-				Back
-			</p>
 		</div>
 	);
 };

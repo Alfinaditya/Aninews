@@ -22,8 +22,12 @@ const AnimeDetails = () => {
 	return (
 		<div className='max-w-6xl px-4'>
 			<div className='flex lg:justify-between flex-wrap justify-center'>
-				<DetailsAndScore anime={data} />
-				<Description anime={data} />
+				{data && (
+					<>
+						<DetailsAndScore anime={data} />
+						<Description anime={data} />
+					</>
+				)}
 			</div>
 		</div>
 	);

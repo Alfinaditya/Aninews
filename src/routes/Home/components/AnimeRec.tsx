@@ -13,9 +13,9 @@ const AnimeRec = () => {
 	if (isError) return <p>Something Went Wrong....</p>;
 	return (
 		<div className='mt-12 mb-20'>
-			<p className='font-bold text-xl sm:text-left  text-center'>
+			<h1 className='font-bold text-xl sm:text-left text-center'>
 				Anime <span className='text-main'>recommendations</span>
-			</p>
+			</h1>
 			{isLoading ? (
 				<RecLoading />
 			) : (

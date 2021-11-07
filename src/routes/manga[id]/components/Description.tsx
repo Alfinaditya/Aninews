@@ -1,7 +1,7 @@
 import React from 'react';
 import { Details } from '../../../ts/manga';
 interface Props {
-	manga: Details | undefined;
+	manga: Details;
 }
 const Description: React.FC<Props> = ({ manga }) => {
 	const informationLeft = [

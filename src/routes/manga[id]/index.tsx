@@ -1,20 +1,42 @@
 import { useQuery } from 'react-query';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { mangaId } from '../../api/manga/mangaId';
+import { mangaIdCharacters } from '../../api/manga/mangaIdCharacters';
+import { mangaIdRecommendations } from '../../api/manga/mangaIdRecommendations';
 import Loading from '../../components/Loading';
 import { Details } from '../../ts/manga';
+import { MangaCharacters } from '../../ts/mangaCharacters';
+import { MediaRecommendations } from '../../ts/media';
+import Characters from './components/Characters';
 import Description from './components/Description';
 import ImagesAndScore from './components/ImageAndScore';
+import Recommendations from './components/Recommendations';
+import { ChevronLeftIcon } from '@heroicons/react/outline';
 
 const MangaDetails = () => {
 	const { id } = useParams() as any;
-	// const MANGA_URL = `https://api.jikan.moe/v3/manga/${id}`
-	// const { data, loading } = FetchData(MANGA_URL)
-	// const manga = data
-
+	const history = useHistory();
 	const { isLoading, isError, data } = useQuery<Details, Error>(
-		'mangaId',
+		['mangaId', id],
 		() => mangaId(id),
+		{
+			cacheTime: 0,
+			refetchIntervalInBackground: false,
+			refetchOnWindowFocus: false,
+		}
+	);
+	const { data: dataCharacters } = useQuery<MangaCharacters, Error>(
+		['mangaIdCharacters', id],
+		() => mangaIdCharacters(id),
+		{
+			cacheTime: 0,
+			refetchIntervalInBackground: false,
+			refetchOnWindowFocus: false,
+		}
+	);
+	const { data: dataRecommendations } = useQuery<MediaRecommendations, Error>(
+		['mangaIdRecommendations', id],
+		() => mangaIdRecommendations(id),
 		{
 			cacheTime: 0,
 			refetchIntervalInBackground: false,
@@ -26,10 +48,25 @@ const MangaDetails = () => {
 
 	return (
 		<div className='max-w-6xl px-4'>
+			<button
+				className='flex items-center mb-6 '
+				onClick={() => history.push('/manga')}
+			>
+				<ChevronLeftIcon className='w-8 h-8' />
+				<span className='font-semibold'>Back</span>
+			</button>
 			<div className='flex lg:justify-between flex-wrap justify-center'>
-				<ImagesAndScore manga={data} />
-				<Description manga={data} />
+				{data && (
+					<>
+						<ImagesAndScore manga={data} />
+						<Description manga={data} />
+					</>
+				)}
 			</div>
+			{dataCharacters && <Characters dataCharacters={dataCharacters} />}
+			{dataRecommendations && (
+				<Recommendations recommendations={dataRecommendations} />
+			)}
 		</div>
 	);
 };
