@@ -29,8 +29,8 @@ const Navbar: React.FC<Props> = ({ open, setOpen }) => {
 					className='text-white ml-auto mr-7 w-8 h-8 block text-whites mt-6 lg:hidden'
 				/>
 				<ul className='flex flex-col pt-16 lg:pt-0'>
-					{navLinks.map(nav => (
-						<li key={nav.id} className='text-lg py-5'>
+					{navLinks.map((nav, i) => (
+						<li key={i} className='text-lg py-5'>
 							<Link to={nav.path} className='flex'>
 								{pathname === nav.path ? (
 									<div className='lg:bg-secondary p-3 rounded-full flex'>
