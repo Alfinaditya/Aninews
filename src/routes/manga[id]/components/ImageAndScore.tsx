@@ -1,17 +1,13 @@
 import React from 'react';
-import { useHistory } from 'react-router';
 import { Details } from '../../../ts/manga';
 
 interface Props {
 	manga: Details;
 }
 const ImagesAndScore: React.FC<Props> = ({ manga }) => {
-	// Todo Refactor details
-	// Todo Style pagination
-	const history = useHistory();
 	return (
-		<div className='mb-13'>
-			<div className='w-80 h-96'>
+		<div className='mb-13 sm:w-80 w-full'>
+			<div className='sm:w-full h-96'>
 				<img
 					src={manga!.image_url}
 					alt={manga?.title}
@@ -19,7 +15,7 @@ const ImagesAndScore: React.FC<Props> = ({ manga }) => {
 				/>
 			</div>
 			<div className='rounded-xl'>
-				<div className='bg-main text-white text-lg font-medium p-1 rounded-xl text-center mt-3'>
+				<div className='bg-main text-white text-lg font-medium p-1 rounded-xl text-center mt-4'>
 					Score
 				</div>
 				<p className='text-center font-bold text-4xl mt-3'>{manga!.score}</p>

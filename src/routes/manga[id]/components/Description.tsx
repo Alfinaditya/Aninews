@@ -50,11 +50,11 @@ const Description: React.FC<Props> = ({ manga }) => {
 			{/*Manga Synopsis  */}
 			<p className='font-roboto font-light mt-3'>{manga!.synopsis}</p>
 
-			{/* Manga Category */}
-			<div className='my-9 flex justify-between'>
+			{/* Manga information */}
+			<div className='my-9 flex md:justify-between md:flex-row flex-col'>
 				<div>
 					{informationLeft.map(information => (
-						<p key={information.id}>
+						<p key={information.id} className='mb-1'>
 							<span className='font-bold text-main'>
 								{information.property} :{' '}
 							</span>
@@ -64,7 +64,7 @@ const Description: React.FC<Props> = ({ manga }) => {
 				</div>
 				<div>
 					{informationRight.map(information => (
-						<p key={information.id}>
+						<p key={information.id} className='mb-1'>
 							<span className='font-bold text-main'>
 								{information.property} :{' '}
 							</span>

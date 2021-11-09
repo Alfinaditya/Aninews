@@ -48,13 +48,13 @@ const AnimeDetails = () => {
 	return (
 		<div className='max-w-6xl px-4'>
 			<button
-				className='flex items-center mb-6 '
+				className='flex items-center mb-6'
 				onClick={() => history.push('/manga')}
 			>
 				<ChevronLeftIcon className='w-8 h-8' />
 				<span className='font-semibold'>Back</span>
 			</button>
-			<div className='flex lg:justify-between flex-wrap justify-center '>
+			<div className='flex lg:justify-between flex-wrap justify-center'>
 				{data && (
 					<>
 						<DetailsAndScore anime={data} />

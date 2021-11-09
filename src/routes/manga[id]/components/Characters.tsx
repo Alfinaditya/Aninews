@@ -9,13 +9,13 @@ const Characters: React.FC<Props> = ({ dataCharacters }) => {
 	let charactersAvailable = dataCharacters.characters.length - loadMore;
 
 	return (
-		<>
+		<div className='my-12 m-auto'>
 			<h1 className='font-bold text-2xl'>Characters</h1>
-			<div className='flex flex-wrap gap-9 mb-6 mt-8'>
+			<div className='flex flex-wrap mb-6 mt-8'>
 				{dataCharacters &&
 					dataCharacters.characters.slice(0, loadMore).map(character => (
-						<div key={character.mal_id}>
-							<div className='h-60 w-48'>
+						<div key={character.mal_id} className='w-full sm:w-48 mb-6 m-auto'>
+							<div className='sm:h-60 h-96 sm:bg-blue-400 sm:w-48'>
 								<img
 									loading='lazy'
 									className='w-full h-full hover:shadow-lg'
@@ -58,7 +58,7 @@ const Characters: React.FC<Props> = ({ dataCharacters }) => {
 					</div>
 				)}
 			</div>
-		</>
+		</div>
 	);
 };
 
