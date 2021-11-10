@@ -16,11 +16,31 @@ const Recommendations: React.FC<Props> = ({ dataRecommendations }) => {
 	return (
 		<div className='mb-20'>
 			<h1 className='font-bold text-2xl'>Recommendations</h1>
-			<Swiper autoplay={{ delay: 1500 }} slidesPerView={5}>
+			<Swiper
+				autoplay={{ delay: 1500 }}
+				breakpoints={{
+					320: {
+						slidesPerView: 2,
+						spaceBetween: 20,
+					},
+					640: {
+						slidesPerView: 3,
+						spaceBetween: 20,
+					},
+					768: {
+						slidesPerView: 4,
+						spaceBetween: 40,
+					},
+					1024: {
+						slidesPerView: 5,
+						spaceBetween: 50,
+					},
+				}}
+			>
 				{dataRecommendations.recommendations.map(recommendation => (
 					<SwiperSlide key={recommendation.mal_id}>
 						<Link to={`/anime/${recommendation.mal_id}`}>
-							<div className='w-48 h-60 mt-8 bg-green-800'>
+							<div className='h-60 mt-8'>
 								<img
 									className='w-full h-full'
 									src={recommendation.image_url}

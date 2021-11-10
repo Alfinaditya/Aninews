@@ -6,69 +6,59 @@ interface Props {
 const Description: React.FC<Props> = ({ anime }) => {
 	const informationLeft = [
 		{
-			id: 1,
 			property: 'Japanese',
 			value: anime?.title_japanese,
 		},
 		{
-			id: 2,
 			property: 'Type',
 			value: anime?.type,
 		},
 		{
-			id: 3,
 			property: 'Status',
 			value: anime?.status,
 		},
 		{
-			id: 4,
 			property: 'Premiered',
 			value: anime?.premiered,
 		},
 	];
 	const informationRight = [
 		{
-			id: 1,
 			property: 'Score',
 			value: anime?.score,
 		},
 		{
-			id: 2,
 			property: 'Episodes',
 			value: anime?.episodes,
 		},
 		{
-			id: 3,
 			property: 'Rating',
 			value: anime?.rating,
 		},
 		{
-			id: 4,
 			property: 'Duration',
 			value: anime?.duration,
 		},
 	];
 	return (
-		<div className='lg:w-3/5 md:w-full '>
+		<div className='lg:w-3/5 md:w-full'>
 			<h1 className='font-quicksand font-medium text-3xl'>{anime!.title}</h1>
 			<iframe
-				width='100%'
-				height='400px'
 				src={anime?.trailer_url}
 				frameBorder='0'
 				allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
 				allowFullScreen
 				title={anime!.title}
-				className='m-auto my-8'
+				className='m-auto my-8 w-full h-96'
 			/>
 			{/*Anime Synopsis  */}
 			<p className='font-roboto font-light mt-3'>{anime!.synopsis}</p>
 
 			{/* Anime Information*/}
-			<div className='my-9 flex justify-between '>
+			<div className='my-9 flex md:justify-between md:flex-row flex-col '>
 				<div>
-					{informationLeft.map(information => (
-						<p key={information.id}>
+					{informationLeft.map((information, i) => (
+						<p key={i} className='mb-1'>
 							<span className='font-bold text-main'>
 								{information.property} :{' '}
 							</span>
@@ -77,8 +67,8 @@ const Description: React.FC<Props> = ({ anime }) => {
 					))}
 				</div>
 				<div>
-					{informationRight.map(information => (
-						<p key={information.id}>
+					{informationRight.map((information, i) => (
+						<p key={i} className='mb-1'>
 							<span className='font-bold text-main'>
 								{information.property} :{' '}
 							</span>

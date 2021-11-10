@@ -10,7 +10,7 @@ import { AnimeCharacters } from '../../ts/Animecharacters';
 import { MediaRecommendations } from '../../ts/media';
 import Characters from './components/Characters';
 import Description from './components/Description';
-import DetailsAndScore from './components/DetailsAndScore';
+import ImageAndScore from './components/ImageAndScore';
 import Recommendations from './components/Recommendations';
 
 const AnimeDetails = () => {
@@ -46,18 +46,18 @@ const AnimeDetails = () => {
 	if (isLoading) return <Loading />;
 	if (isError) return <p>Something Went Wrong....</p>;
 	return (
-		<div className='max-w-6xl px-4'>
+		<div className='xl:max-w-6xl w-full m-auto sm:px-4 items-center'>
 			<button
 				className='flex items-center mb-6'
-				onClick={() => history.push('/manga')}
+				onClick={() => history.push('/anime')}
 			>
 				<ChevronLeftIcon className='w-8 h-8' />
 				<span className='font-semibold'>Back</span>
 			</button>
-			<div className='flex lg:justify-between flex-wrap justify-center'>
+			<div className='flex xl:justify-between xl:flex-row flex-wrap flex-col sm:w-full xl:items-stretch items-center px-4'>
 				{data && (
 					<>
-						<DetailsAndScore anime={data} />
+						<ImageAndScore anime={data} />
 						<Description anime={data} />
 					</>
 				)}

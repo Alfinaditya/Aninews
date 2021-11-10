@@ -1,14 +1,14 @@
 import React from 'react';
-import { useHistory } from 'react-router';
 import { Details } from '../../../ts/anime';
+
 interface Props {
 	anime: Details;
 }
-const DetailsAndScore: React.FC<Props> = ({ anime }) => {
-	const history = useHistory();
+
+const ImageAndScore: React.FC<Props> = ({ anime }) => {
 	return (
-		<div className='mb-13'>
-			<div className='w-80 h-96'>
+		<div className='mb-13 sm:w-80 w-full'>
+			<div className='sm:w-full h-96'>
 				<img
 					src={anime!.image_url}
 					className='w-full h-full'
@@ -25,4 +25,4 @@ const DetailsAndScore: React.FC<Props> = ({ anime }) => {
 	);
 };
 
-export default DetailsAndScore;
+export default ImageAndScore;

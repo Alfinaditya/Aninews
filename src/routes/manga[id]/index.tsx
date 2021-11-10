@@ -47,7 +47,7 @@ const MangaDetails = () => {
 	if (isError) return <p>Something Went Wrong....</p>;
 
 	return (
-		<div className='xl:max-w-6xl w-full m-auto px-4'>
+		<div className='xl:max-w-6xl w-full m-auto sm:px-4'>
 			<button
 				className='flex items-center mb-6 '
 				onClick={() => history.push('/manga')}
@@ -55,7 +55,7 @@ const MangaDetails = () => {
 				<ChevronLeftIcon className='w-8 h-8' />
 				<span className='font-semibold'>Back</span>
 			</button>
-			<div className='flex xl:justify-between xl:flex-row flex-wrap flex-col sm:w-full items-center'>
+			<div className='flex xl:justify-between xl:flex-row flex-wrap flex-col sm:w-full items-center px-4'>
 				{data && (
 					<>
 						<ImagesAndScore manga={data} />

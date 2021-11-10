@@ -12,35 +12,34 @@ interface Props {
 	recommendations: MediaRecommendations;
 }
 const Recommendations: React.FC<Props> = ({ recommendations }) => {
-	const [size, setSize] = useState<any>({
-		width: window.innerWidth,
-		height: window.innerHeight,
-	});
-	const updateSize = () =>
-		setSize({
-			width: window.innerWidth,
-			height: window.innerHeight,
-		});
-	useEffect(() => (window.onresize = updateSize), []);
-	// const XL = size.width >= '1366' ? 5 : undefined;
-	// const LG = size.width <= '1024' ? 4 : undefined;
-	// const MD = size.width <= '768' ? 3 : undefined;
-	// const SM = size.width <= '425' ? 1 : false;
-	// const SLIDE_PREVIEW = SM || MD || LG || XL;
 	return (
 		<div className='mb-20'>
 			<h1 className='font-bold text-2xl'>Recommendations</h1>
 			<Swiper
 				autoplay={{ delay: 1500 }}
-				slidesPerView={5}
-				freeMode={{ enabled: true }}
+				breakpoints={{
+					320: {
+						slidesPerView: 2,
+						spaceBetween: 20,
+					},
+					640: {
+						slidesPerView: 2,
+						spaceBetween: 20,
+					},
+					768: {
+						slidesPerView: 4,
+						spaceBetween: 40,
+					},
+					1024: {
+						slidesPerView: 5,
+						spaceBetween: 50,
+					},
+				}}
 			>
 				{recommendations.recommendations.map(recommendation => (
 					<SwiperSlide key={recommendation.mal_id}>
 						<Link className='block' to={`/manga/${recommendation.mal_id}`}>
-							{/* h-96 */}
-							{/* sm: */}
-							<div className='w-48 h-60 mt-8 m-auto'>
+							<div className='h-60 mt-8 m-auto'>
 								<img
 									className='w-full h-full'
 									src={recommendation.image_url}
