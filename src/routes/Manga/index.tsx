@@ -48,7 +48,7 @@ const Manga: React.FC<Props> = ({ input }) => {
 	if (isError) return <p>Something Went Wrong....</p>;
 
 	return (
-		<div className='lg:w-5/6 md:w-full'>
+		<div className='sm:w-full lg:w-5/6 w-11/12 m-auto'>
 			<Header
 				setSelectedStatusValue={setSelectedStatusValue}
 				selectedStatusText={selectedStatusText}

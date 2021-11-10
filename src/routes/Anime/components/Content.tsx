@@ -26,7 +26,7 @@ const Content: React.FC<Props> = ({
 							className='sm:w-52 md:w-56 w-full mb-10'
 							key={anime.mal_id}
 						>
-							<div className='lg:w-48 md:w-56 sm:w-52 sm:h-52 w-4/5 h-3/5 m-auto lg:h-48'>
+							<div className='lg:w-48 lg:h-48 md:w-56 sm:w-52 sm:h-52 w-4/5 h-3/5 m-auto'>
 								<img
 									src={anime.image_url}
 									className='w-full h-full shadow-lg hover:shadow-xl'

@@ -15,7 +15,7 @@ const Header: React.FC<Props> = ({
 	const [open, setOpen] = useState(false);
 	return (
 		<div className='flex sm:justify-between justify-center flex-wrap lg:mx-6 md:mx-6'>
-			<p className='font-bold text-xl'>
+			<p className='font-bold text-xl sm:block hidden'>
 				Top <span className='text-main capitalize'>{selectedStatusText}</span>
 			</p>
 
