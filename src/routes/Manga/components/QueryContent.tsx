@@ -17,7 +17,7 @@ const QueryContent: React.FC<Props> = ({
 }) => {
 	return (
 		<>
-			<div className='mt-8 grid xl:grid-cols-5 2xl:grid-cols-6 lg:grid-cols-4 sm:grid-cols-3 grid-cols-1 lg:place-items-start sm:place-items-center'>
+			<div className='mt-8 grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 lg:place-items-start place-items-center'>
 				{mangaListQuery &&
 					mangaListQuery.results.map(manga => {
 						const {
@@ -29,10 +29,10 @@ const QueryContent: React.FC<Props> = ({
 						return (
 							<Link
 								to={`manga/${manga.mal_id}`}
-								className='sm:w-52 md:w-56 w-full mb-10'
+								className='lg:w-48 sm:w-48 md:w-56 w-36 mb-10 bg-green-700'
 								key={manga.mal_id}
 							>
-								<div className='lg:w-48 lg:h-48 md:w-56 sm:w-52 sm:h-52 w-4/5 h-3/5 m-auto'>
+								<div className='lg:w-48 lg:h-48 md:w-56 sm:w-48 sm:h-52 w-36 h-40'>
 									<img
 										src={manga.image_url}
 										className='w-full h-full shadow-lg hover:shadow-xl '
@@ -40,11 +40,11 @@ const QueryContent: React.FC<Props> = ({
 									/>
 								</div>
 
-								<div className='lg:w-48 sm:w-52 w-4/5 m-auto'>
-									<p className='mt-6 font-bold w-48 clear-both overflow-hidden overflow-ellipsis whitespace-nowrap'>
+								<div className='lg:w-48 sm:w-48 md:w-56 w-36 bg-blue-500'>
+									<p className='mt-6 font-bold w-full clear-both overflow-hidden overflow-ellipsis whitespace-nowrap'>
 										{manga.title}
 									</p>
-									<p className='mt-2 font-normal'>
+									<p className='mt-2 font-normal w-full clear-both overflow-hidden overflow-ellipsis whitespace-nowrap'>
 										{`${start_date_month} ${start_date_year}`} -
 										{manga.end_date === null
 											? 'Airing'
@@ -61,7 +61,7 @@ const QueryContent: React.FC<Props> = ({
 			</div>
 
 			{mangaListQuery && mangaListQuery.results.length >= 50 && (
-				<>
+				<div className='lg:mb-0 mb-28'>
 					{pagQuery > 0 && (
 						<button
 							onClick={() => {
@@ -88,7 +88,7 @@ const QueryContent: React.FC<Props> = ({
 							Next Page
 						</button>
 					)}
-				</>
+				</div>
 			)}
 		</>
 	);
