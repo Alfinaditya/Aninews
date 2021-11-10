@@ -3,12 +3,9 @@ import { SearchIcon } from '@heroicons/react/outline';
 import React, { useEffect, useState } from 'react';
 
 interface Props {
-	input: string;
 	setInput: React.Dispatch<React.SetStateAction<string>>;
-	setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-	open: boolean;
 }
-const Header: React.FC<Props> = ({ input, setInput, setOpen, open }) => {
+const Header: React.FC<Props> = ({ setInput }) => {
 	const [submit, setSubmit] = useState('');
 	const { pathname } = useLocation();
 	const homeMatch = useRouteMatch('/');
@@ -25,11 +22,10 @@ const Header: React.FC<Props> = ({ input, setInput, setOpen, open }) => {
 		<div className='mt-7 lg:w-2/3 lg:ml-3 w-full'>
 			<div className='flex flex-col lg:justify-between sm:items-center sm:justify-center lg:flex-row'>
 				<h1 className='text-3xl text-main font-roboto font-bold lg:mb-0 mb-4 text-center'>
-					{' '}
 					Aninews
 				</h1>
 				{!homeMatch?.isExact && (
-					<div className='sm:w-1/2 w-4/5 m-auto sm:m-px'>
+					<div className='lg:w-1/2 sm:w-3/5 w-11/12 m-auto sm:m-px'>
 						<form
 							className='flex'
 							onSubmit={e => {
@@ -39,7 +35,7 @@ const Header: React.FC<Props> = ({ input, setInput, setOpen, open }) => {
 						>
 							<input
 								type='search'
-								className='p-1 pl-3 sm:w-96 w-full border-1 border-transparant mr-1 rounded-lg font-medium outline-none'
+								className='p-1 pl-3 lg:w-96 w-full border-1 border-transparant mr-1 rounded-lg font-medium outline-none'
 								placeholder='Search something...'
 								value={submit}
 								onChange={e => setSubmit(e.target.value)}

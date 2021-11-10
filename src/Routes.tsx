@@ -18,12 +18,7 @@ const Routes = () => {
 		<div>
 			<Router>
 				<ScrolltoTop />
-				<Header
-					input={input}
-					setInput={setInput}
-					setOpen={setOpen}
-					open={open}
-				/>
+				<Header setInput={setInput} />
 				<div className='mt-12 flex justify-between m-auto'>
 					<Navbar open={open} setOpen={setOpen} />
 					<Switch>

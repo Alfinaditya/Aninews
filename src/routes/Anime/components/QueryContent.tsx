@@ -19,7 +19,7 @@ const QueryContent: React.FC<Props> = ({
 	console.log(animeListQuery);
 	return (
 		<>
-			<div className='mt-8 justify-center grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3'>
+			<div className='mt-8 grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 lg:place-items-start sm:place-items-center grid-cols-1'>
 				{animeListQuery &&
 					animeListQuery.results.map(anime => {
 						const {
@@ -31,33 +31,30 @@ const QueryContent: React.FC<Props> = ({
 						return (
 							<Link
 								to={`anime/${anime.mal_id}`}
-								className='w-48 mb-10 mx-3'
+								className='sm:w-52 md:w-56 w-full mb-10'
 								key={anime.mal_id}
 							>
-								<div className='w-48 h-48'>
+								<div className='lg:w-48 md:w-56 sm:w-52 sm:h-52 w-4/5 h-3/5 m-auto lg:h-48'>
 									<img
 										src={anime.image_url}
-										className='w-full h-full shadow-lg hover:shadow-xl '
+										className='w-full h-full shadow-lg hover:shadow-xl'
 										alt={anime.title}
 									/>
 								</div>
-								{/* 23 === words length on the first line */}
-								{anime.title.length > 23 ? (
-									<p className='mt-6 font-bold w-48 h-12 overflow-hidden overflow-ellipsis '>
+								<div className='lg:w-48 sm:w-52 w-4/5 m-auto'>
+									<p className='mt-6 font-bold w-full clear-both overflow-hidden overflow-ellipsis whitespace-nowrap'>
 										{anime.title}
 									</p>
-								) : (
-									<p className='mt-6 font-bold'>{anime.title}</p>
-								)}
-								<p className='mt-2 font-normal'>
-									{`${start_date_month} ${start_date_year}`} -
-									{anime.end_date === null
-										? 'Airing'
-										: ` ${end_date_month} ${end_date_year}`}
-								</p>
-								<div className='mt-2 text-main font-bold flex items-center'>
-									<StarIcon className='w-5 h-5' />
-									<p className='ml-2'>{anime.score}</p>
+									<p className='mt-2 font-normal'>
+										{`${start_date_month} ${start_date_year}`} -
+										{anime.end_date === null
+											? 'Airing'
+											: ` ${end_date_month} ${end_date_year}`}
+									</p>
+									<div className='mt-2 text-main font-bold flex items-center'>
+										<StarIcon className='w-5 h-5' />
+										<p className='ml-2'>{anime.score}</p>
+									</div>
 								</div>
 							</Link>
 						);

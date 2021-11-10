@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 
 const BottomNavbar = () => {
 	return (
-		<nav className='bg-main w-full fixed bottom-0 h-16 flex items-center'>
-			<div className='lg:hidden flex justify-between w-11/12 m-auto'>
+		<nav className='lg:hidden bg-main w-full fixed bottom-0 h-16 flex items-center'>
+			<div className='flex justify-between w-11/12 m-auto'>
 				{navLinks.map((navLink, i) => (
 					<NavLink
 						to={navLink.path}
