@@ -22,23 +22,25 @@ const Recommendations: React.FC<Props> = ({ recommendations }) => {
 			height: window.innerHeight,
 		});
 	useEffect(() => (window.onresize = updateSize), []);
-	const XL = size.width >= '1366' ? 5 : undefined;
-	const LG = size.width <= '1024' ? 4 : undefined;
-	const MD = size.width <= '768' ? 3 : undefined;
-	const SM = size.width <= '425' ? 1 : false;
-	const SLIDE_PREVIEW = SM || MD || LG || XL;
+	// const XL = size.width >= '1366' ? 5 : undefined;
+	// const LG = size.width <= '1024' ? 4 : undefined;
+	// const MD = size.width <= '768' ? 3 : undefined;
+	// const SM = size.width <= '425' ? 1 : false;
+	// const SLIDE_PREVIEW = SM || MD || LG || XL;
 	return (
 		<div className='mb-20'>
 			<h1 className='font-bold text-2xl'>Recommendations</h1>
 			<Swiper
 				autoplay={{ delay: 1500 }}
-				slidesPerView={SLIDE_PREVIEW}
-				// freeMode={{  }}
+				slidesPerView={5}
+				freeMode={{ enabled: true }}
 			>
 				{recommendations.recommendations.map(recommendation => (
 					<SwiperSlide key={recommendation.mal_id}>
 						<Link className='block' to={`/manga/${recommendation.mal_id}`}>
-							<div className='sm:w-48 sm:h-60 h-96 mt-8 m-auto'>
+							{/* h-96 */}
+							{/* sm: */}
+							<div className='w-48 h-60 mt-8 m-auto'>
 								<img
 									className='w-full h-full'
 									src={recommendation.image_url}

@@ -18,36 +18,34 @@ const Content: React.FC<Props> = ({
 }) => {
 	return (
 		<>
-			<div className='mt-8 justify-center grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3'>
+			<div className='mt-8 grid xl:grid-cols-5 2xl:grid-cols-6 lg:grid-cols-4 sm:grid-cols-3 grid-cols-1 lg:place-items-start sm:place-items-center'>
 				{animeList &&
 					animeList.top.map(anime => (
 						<Link
 							to={`anime/${anime.mal_id}`}
-							className='w-48 mb-10 mx-3'
+							className='sm:w-52 md:w-56 w-full mb-10'
 							key={anime.mal_id}
 						>
-							<div className='w-48 h-48'>
+							<div className='lg:w-48 md:w-56 sm:w-52 sm:h-52 w-4/5 h-3/5 m-auto lg:h-48'>
 								<img
 									src={anime.image_url}
-									className='w-full h-full shadow-lg hover:shadow-xl '
+									className='w-full h-full shadow-lg hover:shadow-xl'
 									alt={anime.title}
 								/>
 							</div>
-							{/* 23 === words length on the first line */}
-							{anime.title.length > 23 ? (
-								<p className='mt-6 font-bold w-48 h-12 overflow-hidden overflow-ellipsis '>
+
+							<div className='lg:w-48 sm:w-52 w-4/5 m-auto'>
+								<p className='mt-6 font-bold w-48 clear-both overflow-hidden overflow-ellipsis whitespace-nowrap'>
 									{anime.title}
 								</p>
-							) : (
-								<p className='mt-6 font-bold'>{anime.title}</p>
-							)}
-							<p className='mt-2 font-normal'>
-								{anime.start_date} -{' '}
-								{anime.end_date === null ? 'Airing' : anime.end_date}
-							</p>
-							<div className='mt-2 text-main font-bold flex items-center'>
-								<StarIcon className='w-5 h-5' />
-								<p className='ml-2'>{anime.score}</p>
+								<p className='mt-2 font-normal'>
+									{anime.start_date} -{' '}
+									{anime.end_date === null ? 'Airing' : anime.end_date}
+								</p>
+								<div className='mt-2 text-main font-bold flex items-center'>
+									<StarIcon className='w-5 h-5' />
+									<p className='ml-2'>{anime.score}</p>
+								</div>
 							</div>
 						</Link>
 					))}

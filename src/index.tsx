@@ -12,7 +12,7 @@ ReactDOM.render(
 		<React.StrictMode>
 			<App />
 		</React.StrictMode>
-		<ReactQueryDevtools initialIsOpen={true} />
+		{/* <ReactQueryDevtools initialIsOpen={true} /> */}
 	</QueryClientProvider>,
 	document.getElementById('root')
 );

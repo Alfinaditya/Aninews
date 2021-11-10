@@ -1,5 +1,5 @@
 import { Link, useLocation, useRouteMatch } from 'react-router-dom';
-import { XIcon } from '@heroicons/react/outline';
+import BottomNavbar from './components/BottomNavbar';
 import { navLinks } from './utils';
 
 interface Props {
@@ -15,44 +15,40 @@ const Navbar: React.FC<Props> = ({ open, setOpen }) => {
 	if (mangaIdMatch) return <></>;
 
 	return (
-		<div
-			className={`lg:bg-white bg-main lg:static fixed top-0 h-full sm:w-1/3 w-1/2 lg:w-1/6 lg:block ${
-				!open && `hidden`
-			}`}
-		>
-			<nav>
-				{/* Hamburger Menu */}
-				<XIcon
-					onClick={() => {
-						setOpen(!open);
-					}}
-					className='text-white ml-auto mr-7 w-8 h-8 block text-whites mt-6 lg:hidden'
-				/>
-				<ul className='flex flex-col pt-16 lg:pt-0'>
-					{navLinks.map((nav, i) => (
-						<li key={i} className='text-lg py-5'>
-							<Link to={nav.path} className='flex'>
-								{pathname === nav.path ? (
-									<div className='lg:bg-secondary p-3 rounded-full flex'>
-										{nav.visitedIcon}
-										<span className='ml-3 lg:text-main text-white'>
-											{nav.text}
-										</span>
-									</div>
-								) : (
-									<div className='lg:bg-white bg-main p-3 rounded-full flex'>
-										{nav.unvisitedIcon}
-										<span className='ml-3 lg:text-black text-white'>
-											{nav.text}
-										</span>
-									</div>
-								)}
-							</Link>
-						</li>
-					))}
-				</ul>
-			</nav>
-		</div>
+		// className={`lg:bg-white bg-main lg:static fixed top-0 h-full sm:w-1/3 w-1/2 lg:w-1/6 lg:block ${
+		// 	!open && `hidden`
+		// }`}
+		<>
+			<BottomNavbar />
+			<div className='sm:w-1/6 lg:block hidden'>
+				<nav>
+					{/* Hamburger Menu */}
+					<ul className='flex flex-col pt-16 lg:pt-0'>
+						{navLinks.map((nav, i) => (
+							<li key={i} className='text-lg py-5'>
+								<Link to={nav.path} className='flex'>
+									{pathname === nav.path ? (
+										<div className='lg:bg-secondary p-3 rounded-full flex'>
+											{nav.visitedIcon}
+											<span className='ml-3 lg:text-main text-white'>
+												{nav.text}
+											</span>
+										</div>
+									) : (
+										<div className='lg:bg-white bg-main p-3 rounded-full flex'>
+											{nav.unvisitedIcon}
+											<span className='ml-3 lg:text-black text-white'>
+												{nav.text}
+											</span>
+										</div>
+									)}
+								</Link>
+							</li>
+						))}
+					</ul>
+				</nav>
+			</div>
+		</>
 	);
 };
 

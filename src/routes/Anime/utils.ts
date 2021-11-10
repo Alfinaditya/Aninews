@@ -9,15 +9,15 @@ export const statuses = [
 		text: 'TV',
 	},
 	{
-		id: 3,
+		id: 4,
 		text: 'Movie',
 	},
 	{
-		id: 4,
+		id: 5,
 		text: 'Ova',
 	},
 	{
-		id: 5,
+		id: 6,
 		text: 'Special',
 	},
 ];

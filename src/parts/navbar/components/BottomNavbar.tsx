@@ -1,16 +1,22 @@
 import { navLinks } from '../utils';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const BottomNavbar = () => {
 	return (
-		<div>
-			{navLinks.map((navLink, i) => (
-				<Link to={navLink.path} key={i}>
-					{navLink.visitedIcon}
-					<p>{navLink.text}</p>
-				</Link>
-			))}
-		</div>
+		<nav className='bg-main w-full fixed bottom-0 h-16 flex items-center'>
+			<div className='lg:hidden flex justify-between w-11/12 m-auto'>
+				{navLinks.map((navLink, i) => (
+					<NavLink
+						to={navLink.path}
+						key={i}
+						className='flex flex-col items-center'
+					>
+						{navLink.unvisitedIcon}
+						<p className='text-white'>{navLink.text}</p>
+					</NavLink>
+				))}
+			</div>
+		</nav>
 	);
 };
 

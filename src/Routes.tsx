@@ -24,7 +24,7 @@ const Routes = () => {
 					setOpen={setOpen}
 					open={open}
 				/>
-				<div className='mt-12 flex justify-between'>
+				<div className='mt-12 flex justify-between m-auto'>
 					<Navbar open={open} setOpen={setOpen} />
 					<Switch>
 						<Route exact path='/'>

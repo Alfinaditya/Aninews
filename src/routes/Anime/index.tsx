@@ -50,10 +50,11 @@ const Anime: React.FC<Props> = ({ input }) => {
 	if (isLoading) return <Loading />;
 	if (isFetching) return <Loading />;
 	if (isFetchingQuery) return <Loading />;
-	if (isError) return <p>Something Went Wrong....</p>;
 	if (isLoadingQuery) return <Loading />;
+	if (isError) return <p>Something Went Wrong....</p>;
+
 	return (
-		<div className='lg:w-5/6 sm:w-full'>
+		<div className='sm:w-full lg:w-5/6 w-11/12 m-auto'>
 			<Header
 				selectedStatusValue={selectedStatusValue}
 				setSelectedStatusValue={setSelectedStatusValue}

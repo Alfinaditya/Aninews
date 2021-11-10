@@ -1,5 +1,5 @@
 import { useRouteMatch, useLocation } from 'react-router-dom';
-import { MenuAlt1Icon, SearchIcon } from '@heroicons/react/outline';
+import { SearchIcon } from '@heroicons/react/outline';
 import React, { useEffect, useState } from 'react';
 
 interface Props {
@@ -23,8 +23,8 @@ const Header: React.FC<Props> = ({ input, setInput, setOpen, open }) => {
 	if (mangaIdMatch) return <></>;
 	return (
 		<div className='mt-7 lg:w-2/3 lg:ml-3 w-full'>
-			<div className='flex flex-row-reverse lg:justify-between sm:items-center sm:justify-center lg:flex-row'>
-				<h1 className='text-3xl text-main font-roboto font-bold hidden lg:block'>
+			<div className='flex flex-col lg:justify-between sm:items-center sm:justify-center lg:flex-row'>
+				<h1 className='text-3xl text-main font-roboto font-bold lg:mb-0 mb-4 text-center'>
 					{' '}
 					Aninews
 				</h1>
@@ -53,12 +53,6 @@ const Header: React.FC<Props> = ({ input, setInput, setOpen, open }) => {
 						</form>
 					</div>
 				)}
-				<MenuAlt1Icon
-					onClick={() => {
-						setOpen(!open);
-					}}
-					className='w-8 h-8 ml-1 mr-2 block text-main lg:hidden'
-				/>
 			</div>
 		</div>
 	);

@@ -17,11 +17,11 @@ const Header: React.FC<Props> = ({
 	return (
 		<div className='flex sm:justify-between justify-center flex-wrap lg:mx-6 sm:mx-6'>
 			{selectedStatusValue === 'airing' ? (
-				<p className='font-bold text-xl'>
+				<p className='font-bold text-xl sm:block hidden'>
 					New <span className='text-main'>Releases</span>
 				</p>
 			) : (
-				<p className='font-bold text-xl'>
+				<p className='font-bold text-xl sm:block hidden'>
 					Top <span className='text-main'>{selectedStatusText}</span>
 				</p>
 			)}
