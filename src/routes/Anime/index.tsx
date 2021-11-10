@@ -54,7 +54,7 @@ const Anime: React.FC<Props> = ({ input }) => {
 	if (isError) return <p>Something Went Wrong....</p>;
 
 	return (
-		<div className='sm:w-full lg:w-5/6 w-11/12 m-auto'>
+		<div className='w-full lg:w-5/6 m-auto'>
 			<Header
 				selectedStatusValue={selectedStatusValue}
 				setSelectedStatusValue={setSelectedStatusValue}
