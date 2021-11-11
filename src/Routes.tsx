@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './parts/navbar';
 import Header from './Header';
 import Anime from './routes/anime/index';
-import AnimeDetails from './routes/anime[id]/index';
+import AnimeDetails from './routes/anime[id]';
 import Home from './routes/home/index';
 import Manga from './routes/manga/index';
-import MangaDetails from './routes/manga[id]/index';
+import MangaDetails from './routes/manga[id]';
 import ScrolltoTop from '../src/ScrolltoTop';
 import NotFound from './routes/404/index';
 
