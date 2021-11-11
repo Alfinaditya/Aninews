@@ -12,39 +12,41 @@ const MangaRec = () => {
 	);
 	if (isError) return <p>Something Went Wrong....</p>;
 	return (
-		<div className='mt-12 mb-10'>
-			<h1 className='font-bold text-xl sm:text-left text-center'>
+		<div className='mt-20 lg:mb-10 mb-32'>
+			<h1 className='sm:ml-2 font-bold text-xl sm:text-left text-center'>
 				Manga <span className='text-main'>recommendations</span>
 			</h1>
 			{isLoading ? (
 				<RecLoading />
 			) : (
-				<>
-					<div className='grid justify-center xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 mt-8'>
+				<div>
+					<div className='mt-8 2xl:grid-cols-6 grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 lg:place-items-start place-items-center'>
 						{data &&
-							data.recommendations.slice(0, 10).map(manga => (
+							data.recommendations.slice(0, 15).map(manga => (
 								<Link
 									to={`manga/${manga.mal_id}`}
 									key={manga.mal_id}
-									className='w-48 mb-10 mx-3 cursor-pointer'
+									className='lg:w-48 sm:w-48 md:w-56 w-36 mb-10 cursor-pointer'
 								>
-									<div className='w-48 h-48'>
+									<div className='lg:w-48 lg:h-48 md:w-56 sm:w-48 sm:h-52 w-36 h-40'>
 										<img
 											src={manga.image_url}
 											className='w-full h-full shadow-lg hover:shadow-xl'
 											alt={manga.title}
 										></img>
 									</div>
-									<p className='mt-6 font-bold'>{manga.title}</p>
+									<p className='mt-6 font-bold w-full clear-both overflow-hidden overflow-ellipsis whitespace-nowrap'>
+										{manga.title}
+									</p>
 								</Link>
 							))}
 					</div>
 					<Link to='/anime'>
-						<p className='text-main rounded font-medium text-lg underline'>
+						<p className='text-main rounded font-medium text-lg underline ml-2'>
 							More manga...
 						</p>
 					</Link>
-				</>
+				</div>
 			)}
 		</div>
 	);

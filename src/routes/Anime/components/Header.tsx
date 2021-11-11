@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ListBoxStatus from '../../../components/ListBoxStatus';
 import { statuses } from '../utils';
+
 interface Props {
 	selectedStatusValue: string;
 	setSelectedStatusValue: React.Dispatch<React.SetStateAction<string>>;
@@ -15,7 +16,7 @@ const Header: React.FC<Props> = ({
 }) => {
 	const [open, setOpen] = useState(false);
 	return (
-		<div className='flex sm:justify-between justify-center flex-wrap lg:mx-6 sm:mx-6'>
+		<div className='flex sm:justify-between justify-center flex-wrap sm:mx-6'>
 			{selectedStatusValue === 'airing' ? (
 				<p className='font-bold text-xl sm:block hidden'>
 					New <span className='text-main'>Releases</span>

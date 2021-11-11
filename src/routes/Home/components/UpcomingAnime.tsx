@@ -13,50 +13,46 @@ const UpcomingAnime = () => {
 	if (isError) return <p>Something Went Wrong....</p>;
 	return (
 		<div>
-			<h1 className='font-bold text-xl md:ml-4 sm:text-left  text-center'>
+			<h1 className='sm:ml-2 font-bold text-xl sm:text-left text-center'>
 				<span className='text-main'>Upcoming</span> anime
 			</h1>
 			{isLoading ? (
 				<UpcomingLoading />
 			) : (
-				<>
-					<div className='grid justify-center xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 mt-8'>
+				<div>
+					<div className='mt-8 2xl:grid-cols-6 grid xl:grid-cols-5 lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 lg:place-items-start place-items-center'>
 						{data &&
-							data.top.slice(0, 10).map(anime => (
+							data.top.slice(0, 15).map(anime => (
 								<Link
 									to={`anime/${anime.mal_id}`}
 									key={anime.mal_id}
-									className='w-48 mb-10 mx-3 cursor-pointer'
+									className='lg:w-48 sm:w-48 md:w-56 w-36 mb-10 cursor-pointer'
 								>
-									<div className='w-48 h-48'>
+									<div className='lg:w-48 lg:h-48 md:w-56 sm:w-48 sm:h-52 w-36 h-40'>
 										<img
 											src={anime.image_url}
 											className='w-full h-full shadow-lg hover:shadow-xl'
 											alt={anime.title}
 										></img>
 									</div>
-									{/* 23 === words length on the first line */}
-									{anime.title.length > 24 ? (
-										<p className='mt-6 font-bold w-48 h-12 overflow-hidden overflow-ellipsis '>
+									<div className='lg:w-48 sm:w-48 md:w-56 w-36'>
+										<p className='mt-6 font-bold w-full clear-both overflow-hidden overflow-ellipsis whitespace-nowrap'>
 											{anime.title}
 										</p>
-									) : (
-										<p className='mt-6 font-bold'>{anime.title}</p>
-									)}
-									{/* <p className=' w-48 mt-6 font-bold'>{anime.title}</p> */}
-									<div>
-										<span>{anime.start_date}</span> {' - '}
-										<span>{anime.end_date}</span>
+										<div className='mt-2 font-normal w-full clear-both overflow-hidden overflow-ellipsis whitespace-nowrap'>
+											<span>{anime.start_date}</span> {' - '}
+											<span>{anime.end_date}</span>
+										</div>
 									</div>
 								</Link>
 							))}
 					</div>
 					<Link to='/anime'>
-						<p className='text-main rounded font-medium text-lg underline'>
+						<p className='text-main rounded font-medium text-lg underline ml-2'>
 							More anime...
 						</p>
 					</Link>
-				</>
+				</div>
 			)}
 		</div>
 	);

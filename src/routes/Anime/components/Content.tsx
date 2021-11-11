@@ -23,7 +23,7 @@ const Content: React.FC<Props> = ({
 					animeList.top.map(anime => (
 						<Link
 							to={`anime/${anime.mal_id}`}
-							className='lg:w-48 sm:w-48 md:w-56 w-36 mb-10 bg-green-700'
+							className='lg:w-48 sm:w-48 md:w-56 w-36 mb-10'
 							key={anime.mal_id}
 						>
 							<div className='lg:w-48 lg:h-48 md:w-56 sm:w-48 sm:h-52 w-36 h-40'>
@@ -34,7 +34,7 @@ const Content: React.FC<Props> = ({
 								/>
 							</div>
 
-							<div className='lg:w-48 sm:w-48 md:w-56 w-36 bg-blue-500'>
+							<div className='lg:w-48 sm:w-48 md:w-56 w-36'>
 								<p className='mt-6 font-bold w-full clear-both overflow-hidden overflow-ellipsis whitespace-nowrap'>
 									{anime.title}
 								</p>
