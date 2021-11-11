@@ -9,11 +9,10 @@ import Manga from './routes/manga';
 import MangaDetails from './routes/manga[id]';
 import ScrolltoTop from '../src/ScrolltoTop';
 import NotFound from './routes/404';
+
 const Routes = () => {
 	// Search Header
 	const [input, setInput] = useState('');
-	// Hamburger Menu
-	const [open, setOpen] = useState(false);
 	return (
 		<div>
 			<Router>
