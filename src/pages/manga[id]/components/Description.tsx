@@ -6,39 +6,32 @@ interface Props {
 const Description: React.FC<Props> = ({ manga }) => {
 	const informationLeft = [
 		{
-			id: 1,
 			property: 'Japanese',
 			value: manga?.title_japanese,
 		},
 		{
-			id: 2,
 			property: 'Type',
 			value: manga?.type,
 		},
 		{
-			id: 3,
 			property: 'Status',
 			value: manga?.status,
 		},
 		{
-			id: 4,
 			property: 'Premiered',
 			value: manga?.published.string,
 		},
 	];
 	const informationRight = [
 		{
-			id: 1,
 			property: 'Score',
 			value: manga?.score,
 		},
 		{
-			id: 2,
 			property: 'Volumes',
 			value: manga?.volumes,
 		},
 		{
-			id: 3,
 			property: 'Chapters',
 			value: manga?.chapters,
 		},
@@ -53,8 +46,8 @@ const Description: React.FC<Props> = ({ manga }) => {
 			{/* Manga information */}
 			<div className='my-9 flex md:justify-between md:flex-row flex-col'>
 				<div>
-					{informationLeft.map(information => (
-						<p key={information.id} className='mb-1'>
+					{informationLeft.map((information, i) => (
+						<p key={i} className='mb-1'>
 							<span className='font-bold text-main'>
 								{information.property} :{' '}
 							</span>
@@ -63,8 +56,8 @@ const Description: React.FC<Props> = ({ manga }) => {
 					))}
 				</div>
 				<div>
-					{informationRight.map(information => (
-						<p key={information.id} className='mb-1'>
+					{informationRight.map((information, i) => (
+						<p key={i} className='mb-1'>
 							<span className='font-bold text-main'>
 								{information.property} :{' '}
 							</span>

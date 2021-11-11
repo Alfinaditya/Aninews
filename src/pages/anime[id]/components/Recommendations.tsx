@@ -16,6 +16,9 @@ const Recommendations: React.FC<Props> = ({ dataRecommendations }) => {
 	return (
 		<div className='mb-20'>
 			<h1 className='font-bold text-2xl'>Recommendations</h1>
+			{!dataRecommendations.recommendations.length && (
+				<p className='mt-3'>No Recommendations</p>
+			)}
 			<Swiper
 				autoplay={{ delay: 1500 }}
 				breakpoints={{

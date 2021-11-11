@@ -1,5 +1,4 @@
 type status = {
-	id: number;
 	text: string;
 };
 interface Props {
@@ -37,10 +36,10 @@ const ListBoxStatus: React.FC<Props> = ({
 					<div className='rounded-md border-1 border-main bg-white shadow-md mt-2 absolute w-full'>
 						{/* Option */}
 						{statuses.map(
-							status =>
+							(status, i) =>
 								selectedStatusText !== status.text && (
 									<div
-										key={status.id}
+										key={i}
 										className='cursor-pointer flex items-center hover:text-white hover:bg-main hover:font-bold pl-6 h-9'
 										id={status.text.toLowerCase().replace(' ', '')}
 										onClick={e => {

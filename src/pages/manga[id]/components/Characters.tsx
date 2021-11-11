@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { MangaCharacters } from '../../../ts/mangaCharacters';
+import Color from 'color-thief-react';
+
 interface Props {
 	dataCharacters: MangaCharacters;
 }
+
 const Characters: React.FC<Props> = ({ dataCharacters }) => {
 	const charactersToShow = 10;
 	const [loadMore, setLoadMore] = useState(charactersToShow);
@@ -18,14 +21,31 @@ const Characters: React.FC<Props> = ({ dataCharacters }) => {
 							key={character.mal_id}
 							className='w-36 md:w-56 lg:w-48 sm:w-48 mb-6'
 						>
-							<div className='w-36 lg:w-48 sm:h-60 md:w-56 sm:w-48 bg-main h-40'>
-								<img
-									loading='lazy'
-									className='w-full h-full hover:shadow-lg'
-									src={character.image_url}
-									alt={character.name}
-								/>
-							</div>
+							<Color
+								src={character.image_url}
+								crossOrigin='anonymous'
+								format='hex'
+							>
+								{({ data, loading }) => {
+									if (loading)
+										return (
+											<div className='w-36 lg:w-48 sm:h-60 md:w-56 sm:w-48 h-40' />
+										);
+									return (
+										<div
+											style={{ backgroundColor: data }}
+											className='w-36 lg:w-48 sm:h-60 md:w-56 sm:w-48 bg-main h-40'
+										>
+											<img
+												loading='lazy'
+												className='w-full h-full hover:shadow-lg'
+												src={character.image_url}
+												alt={character.name}
+											/>
+										</div>
+									);
+								}}
+							</Color>
 							<div className='sm:w-48 w-36'>
 								<p className='font-bold mt-3 w-full clear-both overflow-hidden overflow-ellipsis whitespace-nowrap'>
 									{character.name}
