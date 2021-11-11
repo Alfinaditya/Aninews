@@ -12,6 +12,7 @@ import Description from './components/Description';
 import ImagesAndScore from './components/ImageAndScore';
 import Recommendations from './components/Recommendations';
 import { ChevronLeftIcon } from '@heroicons/react/outline';
+import Seo from '../../components/Seo';
 
 const MangaDetails = () => {
 	const { id } = useParams() as any;
@@ -58,6 +59,11 @@ const MangaDetails = () => {
 			<div className='flex xl:justify-between xl:flex-row flex-wrap flex-col sm:w-full items-center px-4'>
 				{data && (
 					<>
+						<Seo
+							title={data.title}
+							description={data.synopsis}
+							image={data.image_url}
+						/>
 						<ImagesAndScore manga={data} />
 						<Description manga={data} />
 					</>

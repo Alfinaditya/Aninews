@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { mangaListRecommendations } from '../../../api/manga/mangaListRecommendations';
 import { MediaRecommendations } from '../../../ts/media';
 import RecLoading from './RecLoading';
+import Color from 'color-thief-react';
 
 const MangaRec = () => {
 	const { isLoading, isError, data } = useQuery<MediaRecommendations, Error>(
@@ -28,13 +29,31 @@ const MangaRec = () => {
 									key={manga.mal_id}
 									className='lg:w-48 sm:w-48 md:w-56 w-36 mb-10 cursor-pointer'
 								>
-									<div className='lg:w-48 lg:h-48 md:w-56 sm:w-48 sm:h-52 w-36 h-40'>
-										<img
-											src={manga.image_url}
-											className='w-full h-full shadow-lg hover:shadow-xl'
-											alt={manga.title}
-										></img>
-									</div>
+									<Color
+										src={manga.image_url}
+										crossOrigin='anonymous'
+										format='hex'
+									>
+										{({ data, loading }) => {
+											if (loading)
+												return (
+													<div className='lg:w-48 lg:h-48 md:w-56 sm:w-48 sm:h-52 w-36 h-40' />
+												);
+											return (
+												<div
+													style={{ backgroundColor: data }}
+													className='lg:w-48 lg:h-48 md:w-56 sm:w-48 sm:h-52 w-36 h-40'
+												>
+													<img
+														src={manga.image_url}
+														className='w-full h-full shadow-lg hover:shadow-xl'
+														alt={manga.title}
+													></img>
+												</div>
+											);
+										}}
+									</Color>
+
 									<p className='mt-6 font-bold w-full clear-both overflow-hidden overflow-ellipsis whitespace-nowrap'>
 										{manga.title}
 									</p>

@@ -8,6 +8,7 @@ import Content from './components/Content';
 import { MediaQuery } from '../../ts/media';
 import { animeList } from '../../api/anime/animeList';
 import { animeListQuery } from '../../api/anime/animeListQuery';
+import Seo from '../../components/Seo';
 
 interface Props {
 	input: string;
@@ -63,19 +64,33 @@ const Anime: React.FC<Props> = ({ input }) => {
 			/>
 
 			{dataAnimeListQuery ? (
-				<QueryContent
-					isPreviousDataQuery={isPreviousDataQuery}
-					pagQuery={pageQuery}
-					setPageQuery={setPageQuery}
-					animeListQuery={dataAnimeListQuery}
-				/>
+				<>
+					<Seo
+						title={input}
+						description={`Aninews searched for ${input}`}
+						image={dataAnimeList!.top[0].image_url}
+					/>
+					<QueryContent
+						isPreviousDataQuery={isPreviousDataQuery}
+						pagQuery={pageQuery}
+						setPageQuery={setPageQuery}
+						animeListQuery={dataAnimeListQuery}
+					/>
+				</>
 			) : (
-				<Content
-					isPreviousData={isPreviousData}
-					page={page}
-					setPage={setPage}
-					animeList={dataAnimeList!}
-				/>
+				<>
+					<Seo
+						title='Anime'
+						description='Aninews Anime Section'
+						image={dataAnimeList!.top[0].image_url}
+					/>
+					<Content
+						isPreviousData={isPreviousData}
+						page={page}
+						setPage={setPage}
+						animeList={dataAnimeList!}
+					/>
+				</>
 			)}
 		</div>
 	);

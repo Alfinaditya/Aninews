@@ -7,44 +7,44 @@ const Description: React.FC<Props> = ({ anime }) => {
 	const informationLeft = [
 		{
 			property: 'Japanese',
-			value: anime?.title_japanese,
+			value: anime.title_japanese,
 		},
 		{
 			property: 'Type',
-			value: anime?.type,
+			value: anime.type,
 		},
 		{
 			property: 'Status',
-			value: anime?.status,
+			value: anime.status,
 		},
 		{
 			property: 'Premiered',
-			value: anime?.premiered,
+			value: anime.premiered,
 		},
 	];
 	const informationRight = [
 		{
 			property: 'Score',
-			value: anime?.score,
+			value: anime.score,
 		},
 		{
 			property: 'Episodes',
-			value: anime?.episodes,
+			value: anime.episodes,
 		},
 		{
 			property: 'Rating',
-			value: anime?.rating,
+			value: anime.rating,
 		},
 		{
 			property: 'Duration',
-			value: anime?.duration,
+			value: anime.duration,
 		},
 	];
 	return (
 		<div className='lg:w-3/5 md:w-full'>
-			<h1 className='font-quicksand font-medium text-3xl'>{anime!.title}</h1>
+			<h1 className='font-quicksand font-medium text-3xl'>{anime.title}</h1>
 			<iframe
-				src={anime?.trailer_url}
+				src={anime.trailer_url}
 				frameBorder='0'
 				allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
 				allowFullScreen
@@ -52,7 +52,7 @@ const Description: React.FC<Props> = ({ anime }) => {
 				className='m-auto my-8 w-full h-96'
 			/>
 			{/*Anime Synopsis  */}
-			<p className='font-roboto font-light mt-3'>{anime!.synopsis}</p>
+			<p className='font-roboto font-light mt-3'>{anime.synopsis}</p>
 
 			{/* Anime Information*/}
 			<div className='my-9 flex md:justify-between md:flex-row flex-col '>
@@ -80,8 +80,8 @@ const Description: React.FC<Props> = ({ anime }) => {
 
 			{/* Anime Genres */}
 			<div className='mt-4 flex flex-wrap pb-9 '>
-				{anime!.genres &&
-					anime!.genres.map(genre => (
+				{anime.genres &&
+					anime.genres.map(genre => (
 						<div
 							key={genre.mal_id}
 							className='bg-main p-1 px-4 mr-1 rounded-full text-white mb-2'

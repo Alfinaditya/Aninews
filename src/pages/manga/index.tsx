@@ -7,6 +7,7 @@ import Content from './components/Content';
 import QueryContent from './components/QueryContent';
 import { mangaList } from '../../api/manga/mangaList';
 import { mangaListQuery } from '../../api/manga/mangaListQuery';
+import Seo from '../../components/Seo';
 
 interface Props {
 	input: string;
@@ -56,19 +57,33 @@ const Manga: React.FC<Props> = ({ input }) => {
 			/>
 
 			{dataMangaListQuery ? (
-				<QueryContent
-					isPreviousDataQuery={isPreviousDataQuery}
-					mangaListQuery={dataMangaListQuery!}
-					pagQuery={pageQuery}
-					setPageQuery={setPageQuery}
-				/>
+				<>
+					<Seo
+						title={input}
+						description={`Aninews searched for ${input}`}
+						image={dataMangaListQuery.results[0].image_url}
+					/>
+					<QueryContent
+						isPreviousDataQuery={isPreviousDataQuery}
+						mangaListQuery={dataMangaListQuery!}
+						pagQuery={pageQuery}
+						setPageQuery={setPageQuery}
+					/>
+				</>
 			) : (
-				<Content
-					isPreviousData={isPreviousData}
-					page={page}
-					setPage={setPage}
-					mangaList={dataMangaList!}
-				/>
+				<>
+					<Seo
+						title='Manga'
+						description='Aninews Manga Section'
+						image={dataMangaList!.top[0].image_url}
+					/>
+					<Content
+						isPreviousData={isPreviousData}
+						page={page}
+						setPage={setPage}
+						mangaList={dataMangaList!}
+					/>
+				</>
 			)}
 		</div>
 	);

@@ -5,6 +5,7 @@ import { animeId } from '../../api/anime/animeId';
 import { animeIdCharacters } from '../../api/anime/animeIdCharacters';
 import { animeIdRecommendations } from '../../api/anime/animeIdRecommendations';
 import Loading from '../../components/Loading';
+import Seo from '../../components/Seo';
 import { Details } from '../../ts/anime';
 import { AnimeCharacters } from '../../ts/Animecharacters';
 import { MediaRecommendations } from '../../ts/media';
@@ -57,6 +58,11 @@ const AnimeDetails = () => {
 			<div className='flex xl:justify-between xl:flex-row flex-wrap flex-col sm:w-full xl:items-stretch items-center px-4'>
 				{data && (
 					<>
+						<Seo
+							title={data.title}
+							description={data.synopsis}
+							image={data.image_url}
+						/>
 						<ImageAndScore anime={data} />
 						<Description anime={data} />
 					</>

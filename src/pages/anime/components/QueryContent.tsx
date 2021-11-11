@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { convertIsoDateToDateFormat } from '../../../helpers/convertIsoDateToDateFormat';
 import { MediaQuery } from '../../../ts/media';
+import Color from 'color-thief-react';
 
 interface Props {
 	animeListQuery: MediaQuery;
@@ -10,6 +11,7 @@ interface Props {
 	pagQuery: number;
 	setPageQuery: React.Dispatch<React.SetStateAction<number>>;
 }
+
 const QueryContent: React.FC<Props> = ({
 	animeListQuery,
 	isPreviousDataQuery,
@@ -34,13 +36,30 @@ const QueryContent: React.FC<Props> = ({
 								className='lg:w-48 sm:w-48 md:w-56 w-36 mb-10'
 								key={anime.mal_id}
 							>
-								<div className='lg:w-48 lg:h-48 md:w-56 sm:w-48 sm:h-52 w-36 h-40'>
-									<img
-										src={anime.image_url}
-										className='w-full h-full shadow-lg hover:shadow-xl'
-										alt={anime.title}
-									/>
-								</div>
+								<Color
+									src={anime.image_url}
+									crossOrigin='anonymous'
+									format='hex'
+								>
+									{({ data, loading }) => {
+										if (loading)
+											return (
+												<div className='lg:w-47 lg:h-48 md:w-56 sm:w-48 sm:h-52 w-36 h-40' />
+											);
+										return (
+											<div
+												style={{ backgroundColor: data }}
+												className='lg:w-48 lg:h-48 md:w-56 sm:w-48 sm:h-52 w-36 h-40'
+											>
+												<img
+													src={anime.image_url}
+													className='w-full h-full shadow-lg hover:shadow-xl'
+													alt={anime.title}
+												/>
+											</div>
+										);
+									}}
+								</Color>
 								<div className='lg:w-48 sm:w-48 md:w-56 w-36'>
 									<p className='mt-6 font-bold w-full clear-both overflow-hidden overflow-ellipsis whitespace-nowrap'>
 										{anime.title}
