@@ -39,16 +39,16 @@ const Recommendations: React.FC<Props> = ({ recommendations }) => {
 				{recommendations.recommendations.map(recommendation => (
 					<SwiperSlide key={recommendation.mal_id}>
 						<Link className='block' to={`/manga/${recommendation.mal_id}`}>
-							<div className='h-60 mt-8 m-auto'>
+							<div className='h-60 mt-8 m-auto sm:px-0 px-1'>
 								<img
 									className='w-full h-full'
 									src={recommendation.image_url}
 									alt={recommendation.title}
 								/>
 							</div>
-							<div className='mt-2 w-48 sm:m-auto'>
+							<div className='mt-2 pl-1'>
 								<p>{recommendation.title}</p>
-								<div className='text-main font-bold flex items-center'>
+								<div className='text-main font-bold flex items-center mt-2'>
 									<ThumbUpIcon className='w-5 h-5' />
 									<p className='ml-2'>{recommendation.recommendation_count}</p>
 								</div>

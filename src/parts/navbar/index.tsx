@@ -2,12 +2,7 @@ import { Link, useLocation, useRouteMatch } from 'react-router-dom';
 import BottomNavbar from './components/BottomNavbar';
 import { navLinks } from './utils';
 
-interface Props {
-	open: boolean;
-	setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const Navbar: React.FC<Props> = ({ open, setOpen }) => {
+const Navbar = () => {
 	const { pathname } = useLocation();
 	const animeIdMatch = useRouteMatch('/anime/:id');
 	const mangaIdMatch = useRouteMatch('/manga/:id');
@@ -15,14 +10,10 @@ const Navbar: React.FC<Props> = ({ open, setOpen }) => {
 	if (mangaIdMatch) return <></>;
 
 	return (
-		// className={`lg:bg-white bg-main lg:static fixed top-0 h-full sm:w-1/3 w-1/2 lg:w-1/6 lg:block ${
-		// 	!open && `hidden`
-		// }`}
 		<>
 			<BottomNavbar />
 			<div className='sm:w-1/6 lg:block hidden'>
 				<nav>
-					{/* Hamburger Menu */}
 					<ul className='flex flex-col pt-16 lg:pt-0'>
 						{navLinks.map((nav, i) => (
 							<li key={i} className='text-lg py-5'>

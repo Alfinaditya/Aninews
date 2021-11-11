@@ -20,7 +20,7 @@ const Routes = () => {
 				<ScrolltoTop />
 				<Header setInput={setInput} />
 				<div className='mt-12 flex justify-between m-auto'>
-					<Navbar open={open} setOpen={setOpen} />
+					<Navbar />
 					<Switch>
 						<Route exact path='/'>
 							<Home />
