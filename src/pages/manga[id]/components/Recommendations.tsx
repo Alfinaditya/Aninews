@@ -4,7 +4,6 @@ import SwiperCore, { Autoplay } from 'swiper';
 import 'swiper/swiper-bundle.css';
 import { ThumbUpIcon } from '@heroicons/react/outline';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 
 SwiperCore.use([Autoplay]);
 
